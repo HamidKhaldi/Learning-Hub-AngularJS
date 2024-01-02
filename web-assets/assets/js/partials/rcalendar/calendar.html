@@ -1,0 +1,38 @@
+<div ng-switch="calendarMode" class="scs__calendar-wrapper">
+	<div class="calendar-navbar">
+		<div class="nav-left">
+			<button type="button" class="btn btn-default btn-sm" ng-click="move(-1)"><i class="scs__calendar-previous-month"></i></button>
+		</div>
+		<div class="calendar-header">{{title}}</div>
+		<div class="nav-right">
+			<button type="button" class="btn btn-default btn-sm" ng-click="move(1)"><i class="scs__calendar-next-month"></i></button>
+		</div>
+	</div>
+
+	<!-- Filtering section for MVP3 -->
+
+	<!-- <div class="scs__calendar-filter">
+		<div class="scs__calendar-filter-item">
+			<input class="scs__calendar-filter-item-input" type="checkbox" name="category1" value="category1" />
+			<label class="scs__calendar-filter-item-label" for="category1">Category1</label>
+		</div>
+		<div class="scs__calendar-filter-item">
+			<input class="scs__calendar-filter-item-input" type="checkbox" name="category2" value="category2" />
+			<label class="scs__calendar-filter-item-label" for="category2">Category2</label>
+		</div>
+		<div class="scs__calendar-filter-item">
+			<input class="scs__calendar-filter-item-input" type="checkbox" name="category3" value="category3" />
+			<label class="scs__calendar-filter-item-label" for="category3">Category3</label>
+		</div>
+		<div class="scs__calendar-filter-item">
+			<input class="scs__calendar-filter-item-input" type="checkbox" name="category4" value="category4" />
+			<label class="scs__calendar-filter-item-label" for="category4">Category4</label>
+		</div>
+		<div class="scs__calendar-filter-item">
+			<input class="scs__calendar-filter-item-input" type="checkbox" name="category5" value="category5" />
+			<label class="scs__calendar-filter-item-label" for="category5">Category5</label>
+		</div>
+	</div> -->
+	<monthview ng-switch-when="month"></monthview>
+	<weekview ng-switch-when="week"></weekview>
+</div>

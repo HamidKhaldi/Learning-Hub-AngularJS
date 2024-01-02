@@ -1,0 +1,42 @@
+<div class="scs__child-news-wrapper" ng-controller="articleChildCtrl">
+    <div class="scs__child-news-date">
+       {{storyData.Date | date: 'dd/MMM/yyyy'}}
+    </div>
+    <h3 class="scs__child-news-heading">{{storyData.Title}}</h3>
+    <h5 class="scs__child-news-sub-heading">{{storyData.Sub_x002d_Title}}</h5>
+    <p class="scs__child-news-submit">Submitted by: {{storyData.Submitted_x002d_By}}</p>
+    <a ng-click="addLike(storyData.Likes)" class="scs__child-news-like-link">
+        <div class="scs__child-news-like-cont"></div>        
+        <span class="scs__child-news-like-number">{{storyData.Likes}}</span>
+    </a>
+    <section class="scs__child-news-main">
+        <!-- <div class="scs__child-news-cont" ng-bind-html="storyData.Main_x002d_Content"></div>
+        <div class="scs__child-news-right-cont">
+            <img src="{{storyData.Image.Url}}" alt="attachment image" class="scs__child-news-right-img">
+            <h5 ng-if="storyData.AttachArr" class="scs__child-news-attachment-heading">Attachements</h5>
+            <ul ng-if="storyData.AttachArr" class="scs__child-news-attachments-list">
+                <li ng-repeat="attachment in storyData.AttachArr" class="scs__child-news-attachments-list--item">
+                    <a href="{{attachment.Link}}" class="scs__child-news-attachments-list--link">
+                        <img src="siteUrl/SiteAssets/web-assets/assets/img/doc-icon.png" alt="doc icon" class="scs__child-news-attachments-list--img">
+                        <span class="scs__child-news-attachments-list--title">{{attachment.Title}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div> -->
+        <div class="scs__video-cont">
+            <video src="https://youtu.be/668nUCeBHyY" class="scs__video"></video>
+        </div>
+        <div class="scs__video-desc">
+            <h4 class="scs__video-desc--title">Title</h4>
+            <p class="scs__video-desc--para">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+            </p>
+            <h5 class="scs__video-desc--sub-title">Title</h5>
+            <p class="scs__video-desc--para">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+            </p>
+        </div>
+    </section>
+    <a ui-sref="top-stories" class="scs__child-news-more-btn">More Top Stories <span class="scs__more-chevron"></span></a>
+    
+</div>

@@ -1,0 +1,23 @@
+<div class="scs__search-wrapper" ng-controller="searchCtrl">
+    <h3 class="scs__search-heading">Search results</h3>
+    <p class="scs__search-sub-heading">{{searchResultsArr.length}}</p>
+    <ul class="scs__search-results-list">
+        <li ng-repeat="result in searchResultsArr | filter: {isDoc : false}" class="scs__search-results-list--item">
+            <a ng-click="getArticle(result.ID, result.ArticleType)" class="scs__search-results-list--link">
+                <p class="scs__search-results-list--date">{{result.Date | date: 'dd/MMM/yyyy'}}</p>
+                <p class="scs__search-results-list--title">{{result.Title}} <img src="siteUrl/SiteAssets/web-assets/assets/img/arrow-black.png" alt="arrow right" class="scs__search-results-list--img"></p>
+                
+                <p class="scs__search-results-list--sub-title">{{result.Sub_x002d_Title}}</p>
+            </a>
+        </li>
+    </ul>
+    <ul class="scs__child-news-attachments-list">
+        <li ng-repeat="doc in searchResultsArr | filter: {isDoc : true}" class="scs__child-news-attachments-list--item">
+            <a href="{{doc.Url}}" target="_target" class="scs__child-news-attachments-list--link">
+                <img src="siteUrl/SiteAssets/web-assets/assets/img/doc-icon.png" alt="doc icon" class="scs__child-news-attachments-list--img">
+                <span class="scs__child-news-attachments-list--title">{{doc.Title}}</span>
+                <img src="siteUrl/SiteAssets/web-assets/assets/img/external-link.png" alt="external link" class="scs__child-news-attachments-list--link-img">
+            </a>
+        </li>
+    </ul>
+</div>

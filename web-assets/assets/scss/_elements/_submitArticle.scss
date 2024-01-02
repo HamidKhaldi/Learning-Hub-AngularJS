@@ -1,0 +1,105 @@
+.scs__submit-article-wrapper {
+
+    .scs__article-type-list {
+
+        @include mq($from: desktop) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &--item {
+            flex-wrap: 100%;
+
+            @include mq($from: desktop) {
+                flex-basis: 48%;
+                margin-right: 1% !important;
+            }
+        }
+
+    }
+
+    .scs__submit-article-type-label {
+        display: flex;
+        position: relative;
+        left: 8px;
+    }
+
+    .scs__article-input-cont {
+        position: absolute;
+        border-radius: 100%;
+        width: 27px;
+        height: 27px;
+        top: -2px;
+        left: -7px;
+    }
+
+    .scs__news-checkbox-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        &--item {
+            position: relative;
+            margin-right: 2rem;
+            display: flex;
+            @include fontSize(16px);
+            padding: 5px 0 !important;
+        }
+    }
+
+    .scs__submit-article-type-input {
+        transform: scale(1.5);
+        margin-top: 5px;
+        margin-right: 20px;
+        height: 20px;
+    }
+
+    .scs__article-type-label-span {
+        font-family: EYInterstate-Regular, sans-serif;
+        @include fontSize(18px);
+    }
+
+    .scs__article-type-label-para {
+        @include fontSize(16px);
+        margin: 0;
+    }
+
+    .scs__submit-article-select {
+        border-radius: 0;
+    }
+
+    .scs__submit-article-cont {
+        padding: 0 0 2rem;
+    }
+
+    .scs__file-picker-cont {
+
+        @include mq($from: tablet) {
+            display: flex;
+        }
+    }
+
+    .scs__submit-article-btn {
+        margin-top: 0;
+    }
+
+    .scs__assets-file-picker {
+        padding: 6px;
+        border-radius: 0;
+    }
+
+    .scs__submit-article-cancel-btn {
+        margin-top: 1rem;
+        border-radius: 0;
+        color: $white  !important;
+        background-color: $scsEventBgColor;
+        font-family: EYInterstate-Regular, sans-serif;
+        font-size: 20px;
+        font-size: 1.25rem;
+
+        &:hover {
+            color: $eyGrey  !important;
+            background-color: $eyYellow;
+        }
+    }
+}

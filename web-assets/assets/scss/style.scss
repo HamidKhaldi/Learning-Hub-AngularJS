@@ -1,0 +1,68 @@
+/**
+ * EY - SCS Internal Site - Custom styles
+ *
+ * @author: CSG
+ * @version v0.0.1
+ */
+
+
+ $mq-responsive: true;
+
+ $mq-breakpoints: (
+     mobile:  320px,
+     midMobile: 480px,
+     tablet:  740px,
+     desktop: 	980px,
+     desktopMid:    1135px,
+     desktopWide:    1400px,
+     desktopXL:    1800px
+ );
+  
+ $mq-static-breakpoint: desktop;
+ //$mq-show-breakpoints: (mobile, midMobile, tablet, desktop, desktopMid, desktopWide, desktopXL); 
+   
+ //Third Party 
+ @import '_third-party/_sass-mq';
+ @import '_third-party/_normalize';
+ @import '_third-party/_bootstrap-5';
+ @import '_third-party/_sharepoint';
+ @import '_third-party/_prism-okaidia';
+   
+ //Tools 
+ @import '_tools/_helpers';
+ @import '_tools/_variables.scss';
+ @import '_tools/_mixins';
+ @import '_tools/_ticker';
+ 
+ //Base 
+ @import '_base/_base';
+ @import '_base/_typography';
+ 
+ //Elements
+ @import '_elements/_home';
+ @import '_elements/_header';
+ @import '_elements/_navAnimation';
+ @import '_elements/_intro';
+ @import '_elements/_thumbnails';
+ @import '_elements/_about';
+ @import '_elements/_experience';
+ @import '_elements/_impact';
+ @import '_elements/_knowledge';
+ @import '_elements/_news';
+ @import '_elements/_childNews';
+ @import '_elements/_search';
+ @import '_elements/_stories';
+ @import '_elements/_submitArticle';
+ @import '_elements/_newsletter';
+ @import '_elements/_calendar';
+ @import '_elements/_template';
+ @import '_elements/_secondaryTemplate';
+ 
+
+ // Print Stylesheets
+ @media print {
+     @import '_media/_print'; 
+ }
+ 
+ 
+ 

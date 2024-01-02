@@ -1,0 +1,55 @@
+<div class="scs__child-news-wrapper" ng-controller="articleChildCtrl">
+    <div class="scs__child-news-date">
+        {{articleData.Date | date: 'dd/MMM/yyyy'}}
+    </div>
+    <h3 class="scs__child-news-heading">{{articleData.Title}}</h3>
+    <h5 class="scs__child-news-sub-heading">{{articleData.Sub_x002d_Title}}</h5>
+    <p class="scs__child-news-submit">Submitted by: {{articleData.Submitted_x002d_By}}</p>
+    <ul class="scs__child-social-list">
+        <li class="scs__child-social-listitem">
+            <a ng-click="addLike(articleData.Likes)" class="scs__child-news-like-link">
+                <div class="scs__child-news-like-cont"></div>        
+                <span class="scs__child-news-like-number">{{articleData.Likes}}</span>
+            </a>
+        </li>
+        <li class="scs__child-social-listitem">
+            <a ng-click="sendMail()" class="scs__child-news-share">
+                <div class="scs__child-news-share-cont"></div>        
+            </a>
+        </li>
+        <li class="scs__child-social-listitem">
+            <a ng-click="" class="scs__child-news-comment">
+                <div class="scs__child-news-comment-cont"></div>        
+                <span class="scs__child-news-comment-number">{{commentsArr.length}}</span>
+            </a>
+        </li>
+    </ul>
+    <section class="scs__child-news-main">
+        <div class="scs__child-news-cont" ng-bind-html="articleData.Main_x002d_Content"></div>
+    </section>
+    <section class="scs__child-news-main">
+        <div class="scs__child-news-attach" ng-bind-html="articleData.Attachment_x002d_Files">
+        </div>
+    </section>
+    <a ui-sref="other-news" class="scs__child-news-more-btn">More News <span class="scs__more-chevron"></span></a>
+    <section class="scs__child-news-comments"> 
+        <div class="scs__comments-entry-section">
+            <p class="scs__comments-title"><span>{{commentsArr.length}}</span> comments</p>
+            <textarea ng-model="comment" class="scs__comments-textarea" name="" id="" rows="6"></textarea>
+            <a ng-click="addComments()" class="scs__child-news-more-btn">Add comment <span class="scs__more-chevron"></span></a>
+        </div>
+        <div class="scs__comments-view-section">
+            <ul class="scs__comments-view-list">
+                <li class="scs__comments-view-listitem" ng-repeat="comment in commentsArr | orderBy : '-Created'">
+                    <div class="scs__comments-author-details">
+                        <p class="scs__comments-author">{{comment.commentUser}}</p>
+                        <p class="scs__comments-author-date">{{comment.Created | date:'MM/dd/yyyy | HH:MM'}}</p>
+                    </div>
+                    <div class="scs__comments-details">
+                        <div ng-bind-html="comment.comment"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>

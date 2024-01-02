@@ -1,0 +1,28 @@
+<div class="scs__stories-wrapper" ng-controller="topStoriesCtrl">
+    <section class="scs__stories-intro-section">
+        <div class="scs__stories-heading-cont">
+            <h3 class="scs__stories-heading">Top Stories</h3>
+        </div>        
+        <ul class="scs__stories-checkbox-list">
+            <li ng-repeat="keyword in keywordArr | orderBy" class="scs__stories-checkbox-list--item">
+                <input ng-click="filterData(keyword.Title)" type="checkbox" name="Filter" value="{{keyword.Title}}" class="scs__stories-checkbox-input">
+                <label class="scs__stories-checkbox-label" for="filter">{{keyword.Title}}</label>
+            </li>
+        </ul>
+    </section>
+    <section class="scs__stories-cont">
+        <ul class="scs__stories-list">
+            <li ng-repeat="topStory in filteredStoriesArr" class="scs__stories-list--item">
+                <a ui-sref="top-stories-child({articleType: 'top-story', articleTitle:topStory.Title})" ng-click="getTopStory(topStory.ID)" class="scs__stories-list--link">
+                    <img src="{{topStory.Image.Url}}" alt="" class="scs__stories-list-img"/>
+                    <div class="scs__stories-list-desc-cont">
+                       <div class="scs__stories-list-arrow"></div>
+                       <div class="scs__stories-list-date">{{topStory.Date | date: 'dd/MMM/yyyy'}}</div>
+                       <h5 class="scs__stories-list-heading">{{topStory.Title}}</h5>
+                        <p class="scs__stories-list-desc">{{topStory.Sub_x002d_Title}}</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+</div>

@@ -1,0 +1,98 @@
+.scs__knowledge-intro-section{
+    padding-bottom: 0;
+}
+
+.scs__knowledge-main-subheading{
+    background-color: $scsKnowledgeBg;
+    font-family: EYInterstate-Light, sans-serif;
+    color: $eyOffBlack !important;
+    margin: 0;
+    padding: 2rem 2rem 0;
+    @include fontSize(24px);
+
+    @include mq($from: desktop){
+        padding: 2rem 6rem 0;
+    }
+}
+
+.scs__knowledge-cont-list{
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mq($from: desktop){
+        padding: 2rem 6rem;
+        min-height: 21vh;
+    }
+
+    &:nth-child(2){
+        background-color: $scsKnowledgeBg;
+    }
+
+    &:nth-child(3){
+        background-color: $scsPaleGrey;
+    }
+
+    &--item{
+        flex-basis: 100%;
+        margin-bottom: 3rem;
+
+        @include mq($from: tablet){
+            flex-basis: 48%;
+            margin-right: 1%;
+        }
+
+        @include mq($from: desktop){
+            flex-basis: 32%;
+            margin-right: 1%;
+            margin-bottom: unset;
+        }  
+    }
+
+    &--heading{
+        font-family: EYInterstate-Light, sans-serif;
+        color: $eyOffBlack !important;
+        @include fontSize(18px);
+        margin-bottom: 1rem;
+    }
+
+    &--resource-heading{
+        @include fontSize(20px);
+    }
+}
+
+.scs__child-news-attachments-list{
+    list-style: none;
+    padding: 0;
+
+    @include mq($from: tablet){
+
+    }
+
+    &--item{
+        background-color: $white;
+        padding: 10px 60px 10px 15px;
+        margin-bottom: 10px;
+        width: fit-content;
+        position: relative
+    }
+
+    &--link{
+        @include fontSize(14px);
+    }
+
+    &--img{
+        margin-right: 7px;
+    }
+
+    &--link-img{
+        position: absolute;
+        top: 4px;
+        right: 4px;
+    }
+}
+

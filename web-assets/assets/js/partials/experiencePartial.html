@@ -1,0 +1,56 @@
+<div class="scs__template-wrapper" ng-controller="experienceCtrl">
+    <section class="scs__hero-section" ng-Style="{backgroundImage: 'url(' + selectedPage.Page_x002d_Banner.Url + ')'}" >
+        <div class="scs__hero-intro-cont">
+           <h3 class="scs__hero-intro-heading" ng-style="{color: selectedPage.Page_x002d_Title_x002d_Color}">{{selectedPage.Title}}</h3>
+           <div class="scs__hero-intro-para" ng-style="{color: selectedPage.Page_x002d_Title_x002d_Color}" ng-bind-html="selectedPage.Page_x002d_Sub_x002d_Title"></div>
+        </div>
+        <div class="scs__hero-yammer-cont">
+            <a href="https://web.yammer.com/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI0NzkxMzg3In0/new" target="_blank" class="scs__hero-yammer-link"></a>
+        </div>
+    </section>
+    <section class="scs__about-intro-section scs__knowledge-intro-section">
+        <div class="scs__about-heading-cont">
+            <h3 class="scs__about-heading">SCS Experience</h3>
+        </div>
+        <div class="scs__about-intro-cont" ng-bind-html="selectedPage.Page_x002d_Description">
+        </div>
+    </section>
+    <section class="scs__about-main-section" xxng-controller="experienceCtrl" cardheight>
+      <h3 class="scs__experience-heading--template">Resources</h3>
+         <ul class="scs__experience-card-list">
+             <li ng-repeat="experience in pageExperienceArr  | orderBy: 'Order1'" class="scs__experience-card-list--item">
+                <div class="card-wrapper">
+                  <div class="card card-ordered">
+                    <div class="card-image bg-darkGrey">
+                       <div class="scs__thumbnails-action">
+                          <h4 class="scs__thumbnails-action-title">{{experience.Title}}</h4>
+                          <ul class="scs__intro-linklist">
+                             <li ng-repeat="link in experience.linkDetailsArr" class="scs__intro-link">
+                                <a href="{{link.Url}}" target="_blank" class="scs__intro-link-text">{{link.Title}}</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                    <div class="card-body">
+                       <div class="scs__card-assoc-image" ng-Style="{backgroundImage: 'url(' + experience.Image + ')'}"> 
+                          <div class="dots">
+                             <div class="dot"></div>
+                             <div class="dot"></div>
+                             <div class="dot"></div>
+                          </div>
+                       </div>
+                       <div class="scs__card-assoc-desc">
+                          <div class="scs__thumbnails-content-hidden" ng-bind-html="experience.Description">
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                </div>
+             </li>
+         </ul>
+     </section>
+    <div class="scs__about-main-section">
+        <h3 class="scs__experience-heading--template">Yammer</h3>
+        <iframe name="embed-feed" title="Yammer" src="https://web.yammer.com/embed/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI0NzkxMzg3In0?header=true&footer=false&hideNetworkName=false&theme=light&includeFeedInformation=false" style="border: 0px; overflow: hidden; width: 100%; height: 100%; min-height: 400px;"></iframe>
+    </div>
+</div>

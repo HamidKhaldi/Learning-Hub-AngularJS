@@ -1,0 +1,12 @@
+.scs__experience-card-section{
+    background-color: $scsBodyBgColor;
+    padding: 2rem;
+
+    @include mq($from: desktop){
+        padding: 2rem 4rem;
+    }
+}
+
+.scs__calendar-event-box-item-text{
+    width: 100%;
+}

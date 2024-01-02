@@ -1,0 +1,116 @@
+<div class="scs__newsletter-wrapper scs__submit-article-wrapper" ng-controller="submitArticleCtrl" ng-init="getUserData();">
+    <h2 class="scs__newsletter-heading">Submit your article</h2>
+    <section class="scs__newsletter-section">
+        <div class="scs__submit-article-cont">
+            <h3 for="Type" class="scs__newsletter-input-label">Type*</h3>
+            <ul class="scs__news-checkbox-list scs__article-type-list">
+                <li class="scs__news-checkbox-list--item scs__article-type-list--item">
+                    <label class="scs__submit-article-type-label">
+                        <div class="scs__article-form-control scs__article-input-cont"></div>
+                        <input ng-click="setArticleType('headline')" type="radio" class="scs__submit-article-type-input" ng-model="articleType" value="headline">
+                        <div class="scs__article-type-label-desc">
+                            <span class="scs__article-type-label-span">Headlines</span>
+                            <p class="scs__article-type-label-para">Headlines... etc.</p>
+                        </div>
+                    </label>
+                </li>
+                <li class="scs__news-checkbox-list--item scs__article-type-list--item">
+                    <label class="scs__submit-article-type-label">
+                        <div class="scs__article-form-control scs__article-input-cont"></div>
+                        <input ng-click="setArticleType('team-update')" type="radio" class="scs__submit-article-type-input" ng-model="articleType" value="team-update">
+                        <div class="scs__article-type-label-desc">
+                            <span class="scs__article-type-label-span">Team Updates</span>
+                            <p class="scs__article-type-label-para">Business related news in relation to procurement category or function e.g. success stories, best practice</p>
+                        </div>
+                    </label>
+                </li>
+                <li class="scs__news-checkbox-list--item scs__article-type-list--item">
+                    <label class="scs__submit-article-type-label">
+                        <div class="scs__article-form-control scs__article-input-cont"></div>
+                        <input ng-click="setArticleType('kudos')" type="radio" class="scs__submit-article-type-input" ng-model="articleType" value="kudos">
+                        <div class="scs__article-type-label-desc">
+                            <span class="scs__article-type-label-span">Kudos and Celebrations</span>
+                            <p class="scs__article-type-label-para">Non-business related news in relation to
+                                procurement family e.g. celebrations, births, anniversaries, promotions</p>
+                        </div>
+                    </label>
+                </li>
+                <li class="scs__news-checkbox-list--item scs__article-type-list--item">
+                    <label class="scs__submit-article-type-label">
+                        <div class="scs__article-form-control scs__article-input-cont"></div>
+                        <input ng-click="setArticleType('my-news')" type="radio" class="scs__submit-article-type-input" ng-model="articleType" value="my-news">
+                        <div class="scs__article-type-label-desc">
+                            <span class="scs__article-type-label-span">My News</span>
+                            <p class="scs__article-type-label-para">Managed subscription, Elective Subscription</p>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div class="scs__submit-article-cont">
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-md-5 input-group-lg">
+                    <label for="First Name" class="scs__newsletter-input-label">Topic*</label>
+                    <select xxng-change="selectTopic(selectedTopic)" ng-model="articleTopic" class="form-select scs__submit-article-select scs__article-form-control" aria-label="Default select example" disabled>
+                        <option ng-repeat="topic in topicArr | orderBy" value="{{topic.Title}}">{{topic.Title}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="scs__submit-article-cont">
+            <div id="file-picker-cont" class="scs__assets-file-picker-cont">
+                <label id="file-picker-label" class="button scs__validation-button scs__assets-file-picker-label" for="filePicker">Attachments (refer to attachments in news details)</label>
+                <div class="scs__file-picker-cont">
+                    <div class="col-12 col-md-5 input-group-lg">
+                        <input id="filePicker" type="file" class="form-control scs__assets-file-picker col-8" multiple>
+                    </div>
+                    <a id="upload-button" type="button" class="btn scs__newsletter-submit-btn scs__submit-article-btn hide-asset" ng-click="uploadFile()">Attach</a>
+                </div>
+            </div>
+            <div id="uploaded-files-cont" class="scs__uploaded-files-cont {{uploadedFilesClass}}">
+                <p class="scs__selected-assets-para">
+                    These files will be uploaded
+                </p>
+                <ul id="uploaded-files-list" class="scs__uploaded-files-list scs__selected-assets-para">
+                </ul>
+            </div>
+        </div>
+        <div class="scs__submit-article-cont">
+            <div class="row mb-3">
+                <div class="col-12 col-md-6 input-group-lg">
+                    <label for="Title" class="scs__newsletter-input-label">Title*</label>
+                    <input type="text" name="articleTitle" ng-model="articleTitle" class="form-control scs__article-form-control" aria-label="Title">
+                </div>
+                <div class="col-12 col-md-6 input-group-lg">
+                    <label for="Sub-Title" class="scs__newsletter-input-label">Sub-title*</label>
+                    <input type="text" name="articleSubTitle" ng-model="articleSubTitle" class="form-control scs__article-form-control" aria-label="Sub-Title">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col input-group-lg">
+                    <label for="Article" class="scs__newsletter-input-label">News details*</label>
+                    <textarea ui-tinymce="tinymceOptions" id="newsLetterTextArea" name="articleText" ng-model="articleText" class="form-control scs__article-form-control" aria-label="Article"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="scs__submit-article-cont">
+            <div class="col-12 mb-3">
+                <a ng-click="submitArticle()" type="submit" class="btn scs__newsletter-submit-btn">Submit</a>
+                <a ng-click="resetFields()" type="submit" class="btn scs__submit-article-cancel-btn">Cancel</a>
+            </div>
+        </div>
+    </section>
+    <!-- Modal -->
+    <div class="modal scs__newsletter-modal fade" id="newsLetterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="newsLetterModalLabel" aria-hidden="true">
+        <div class="modal-dialog scs__newsletter-modal-dialog">
+            <div class="modal-content scs__newsletter-modal-content">
+                <div class="modal-body scs__newsletter-modal-body">
+                    {{modalMessage}}
+                </div>
+                <div class="modal-footer scs__newsletter-modal-footer">
+                    <button type="button" class="btn btn-secondary scs__newsletter-modal-btn" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

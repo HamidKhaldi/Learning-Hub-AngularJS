@@ -1,0 +1,107 @@
+#scs__main-wrapper {
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+	background: $scsBodyBgColor;
+	font-family: EYInterstate-Light,sans-serif;
+	@include fontSize(16px);
+	color: $eyOffBlack;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+	position: relative;
+
+
+	a{
+		text-decoration: none;
+		color: $eyOffBlack;
+		cursor: pointer;
+
+		&:hover{
+			text-decoration: none;
+			color: $eyOffBlack;
+		}
+	}
+	
+	
+	/* scrollbar */
+
+	  /* width */
+	::-webkit-scrollbar {
+		width: 4px;
+	} 
+  
+	/* Track */
+	::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 5px grey; 
+		border-radius: 10px;
+	}
+   
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background:$eyPrimaryGray; 
+		border-radius: 10px;
+	}
+  
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: $eyPrimaryGray; 
+	}
+
+	.rotate-icon{
+		transform: rotate(90deg);
+	}
+
+	.hide-asset{
+		display: none;
+	}
+
+	.disabled{
+		opacity: .35 !important;
+		cursor: none;
+	} 
+
+	.btn-disabled{
+		background-color: $eySharkGrey; 
+		cursor: none;
+		// &:hover{
+		// 	color: $eyOffBlack !important;
+		// }
+	}
+
+	#s4-workspace{
+		scroll-behavior: smooth;
+	}
+
+	.no-bg{
+		background-color: transparent !important;
+	}
+
+	.yellow-bg{
+		background-color: $eyYellow !important;
+	}
+
+	h1, h2, h3, h4, h5, h6, p, label, div{
+		font-family: EYInterstate-Light, sans-serif !important; 
+	}
+
+	.team-update{
+        background-color: $eyPrimaryGreen;
+    }
+
+    .headlines{
+        background-color: $eyYellow;
+    }
+
+    .kudos{
+        background-color: $eyPrimaryBlue;
+    }
+    
+    .my-news{
+        background-color: $eyPrimaryCyan;
+    }
+    
+
+}
+
+	

@@ -1,0 +1,75 @@
+<div class="scs__home-wrapper">
+    <home-hero></home-hero>
+    <section class="scs__about-intro-section scs__knowledge-intro-section">
+        <div class="scs__about-heading-cont">
+            <h3 class="scs__about-heading">Knowledge Center</h3>
+        </div>
+    </section>
+    <section class="scs__knowledge-main-section" ng-controller="knowledgeCenterCtrl">
+        <h3 class="scs__knowledge-main-subheading">Policies, processes and procedures</h3>
+        <ul class="scs__knowledge-cont-list">
+            <li class="scs__knowledge-cont-list--item">
+                <h4 class="scs__knowledge-cont-list--heading">Global Procurement Policy</h4>
+                <ul class="scs__child-news-attachments-list">
+                    <li ng-repeat="policy in knowledgeArr | filter: {Document_x002d_Category : 'Global Procurement Policy'}" class="scs__child-news-attachments-list--item">
+                        <a href="{{policy.Document_x002d_Link.Url}}" target="_target" class="scs__child-news-attachments-list--link">
+                            <img src="siteUrl/SiteAssets/web-assets/assets/img/doc-icon.png" alt="doc icon" class="scs__child-news-attachments-list--img">
+                            <span class="scs__child-news-attachments-list--title">{{policy.Title}}</span>
+                            <img src="siteUrl/SiteAssets/web-assets/assets/img/external-link.png" alt="external link" class="scs__child-news-attachments-list--link-img">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="scs__knowledge-cont-list--item">
+                <h4 class="scs__knowledge-cont-list--heading">Procedures</h4>
+                <ul class="scs__child-news-attachments-list">
+                    <li ng-repeat="policy in knowledgeArr | filter: {Document_x002d_Category : 'Procedures'}" class="scs__child-news-attachments-list--item">
+                        <a href="{{policy.Document_x002d_Link.Url}}" target="_target" class="scs__child-news-attachments-list--link">
+                            <img src="siteUrl/SiteAssets/web-assets/assets/img/doc-icon.png" alt="doc icon" class="scs__child-news-attachments-list--img">
+                            <span class="scs__child-news-attachments-list--title">{{policy.Title}}</span>
+                            <img src="siteUrl/SiteAssets/web-assets/assets/img/external-link.png" alt="external link" class="scs__child-news-attachments-list--link-img">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="scs__knowledge-cont-list">
+            <li class="scs__knowledge-cont-list--item">
+                <h4 class="scs__knowledge-cont-list--heading scs__knowledge-cont-list--resource-heading">Resource library</h4>
+                <ul class="scs__child-news-attachments-list">
+                    <li ng-repeat="policy in knowledgeArr | filter: {Document_x002d_Category : 'Resource library'}" class="scs__child-news-attachments-list--item">
+                        <a href="{{policy.Document_x002d_Link.Url}}" target="_target" class="scs__child-news-attachments-list--link">
+                            <img src="siteUrl/SiteAssets/web-assets/assets/img/doc-icon.png" alt="doc icon" class="scs__child-news-attachments-list--img">
+                            <span class="scs__child-news-attachments-list--title">{{policy.Title}}</span>
+                            <img src="siteUrl/SiteAssets/web-assets/assets/img/external-link.png" alt="external link" class="scs__child-news-attachments-list--link-img">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="scs__knowledge-cont-list--item">
+                <h4 class="scs__knowledge-cont-list--heading scs__knowledge-cont-list--resource-heading">PolicyTech</h4>
+                <ul class="scs__child-news-attachments-list">
+                    <li ng-repeat="policy in knowledgeArr | filter: {Document_x002d_Category : 'PolicyTech'}" class="scs__child-news-attachments-list--item">
+                        <a href="{{policy.Document_x002d_Link.Url}}" target="_target" class="scs__child-news-attachments-list--link">
+                            <img src="siteUrl/SiteAssets/web-assets/assets/img/doc-icon.png" alt="doc icon" class="scs__child-news-attachments-list--img">
+                            <span class="scs__child-news-attachments-list--title">{{policy.Title}}</span>
+                            <img src="siteUrl/SiteAssets/web-assets/assets/img/external-link.png" alt="external link" class="scs__child-news-attachments-list--link-img">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="scs__knowledge-cont-list--item">
+                <h4 class="scs__knowledge-cont-list--heading scs__knowledge-cont-list--resource-heading">Market Insights</h4>
+                <ul class="scs__child-news-attachments-list">
+                    <li ng-repeat="policy in knowledgeArr | filter: {Document_x002d_Category : 'Market Insights'}" class="scs__child-news-attachments-list--item">
+                        <a href="{{policy.Document_x002d_Link.Url}}" target="_target" class="scs__child-news-attachments-list--link">
+                            <img src="siteUrl/SiteAssets/web-assets/assets/img/doc-icon.png" alt="doc icon" class="scs__child-news-attachments-list--img">
+                            <span class="scs__child-news-attachments-list--title">{{policy.Title}}</span>
+                            <img src="siteUrl/SiteAssets/web-assets/assets/img/external-link.png" alt="external link" class="scs__child-news-attachments-list--link-img">
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</div>

@@ -1,0 +1,111 @@
+<div class="scs__home-wrapper" ng-controller="homeCtrl" ng-init="getUserData()">
+   <home-hero></home-hero>
+   <section class="scs__main-section">
+      <div class="scs__carousel-cont">
+         <div id="scs__family-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+               <ol class="carousel-indicators">
+                  <li ng-repeat="topStories in topStoriesArr | orderBy | limitTo: 4" data-bs-target="#scs__family-carousel" data-bs-slide-to="{{$index}}" ng-class="{active:!$index}">
+                     <div class="scs__family-carousel-inner-indicator">
+                     </div>
+                  </li>
+               </ol> 
+               <div ng-repeat="topStories in topStoriesArr | orderBy | limitTo: 4" class="carousel-item" ng-class="{active:!$index}">
+                  <div class="scs__family-carousel-item">
+                     <a ng-click="getTopStory(topStories.ID)" class="scs__family-carousel-item-link" ui-sref="top-stories-child({articleTitle:topStories.Title, articleType:'top-story'})">
+                        <div class="scs__family-carousel-image-cont">
+                           <img src="{{topStories.Image.Url}}" alt="Service Image" class="scs__family-carousel-img" />
+                        </div>
+                        <div class="scs__family-carousel-desc-cont">
+                           <div class="scs__family-carousel-arrow"></div>
+                           <div class="scs__family-carousel-date" ng-bind="topStories.Date | date: 'dd MMM yyyy'"></div>
+                           <h5 class="scs__family-carousel-heading">{{topStories.Title}}</h5>
+                           <p class="scs__family-carousel-desc">{{topStories.Sub_x002d_Title}}</p>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="scs__story-cont">
+         <h4 class="scs__story-heading">Latest stories</h4>
+         <ul class="scs__story-list">
+            <li ng-repeat="story in filteredArticlesArr | limitTo: 3" class="scs__story-list--item">
+               <a class="scs__story-list-anchor" ng-click="getArticle(story.ID, story.ArticleType)" ui-sref="other-news-child({articleType: story.ArticleType, articleTitle:story.Title})">
+                  <div class="scs__story-border"></div>
+                  <div class="scs__story-list-title">{{story.Title}}</div>
+               </a>
+            </li>
+         </ul>
+      </div>
+      <div class="scs__articles-cont">
+         <section class="scs__personalise-section {{displayClass}}">
+            <a ng-click="hidePersonalisation()" href="#" class="scs__personalise-close-link">
+               <img src="siteUrl/SiteAssets/web-assets/assets/img/close.png" alt="close button" class="scs__personalise-close-img">
+            </a>
+            <ul class="scs__personalise-cont-list">
+               <li class="scs__personalise-cont-list--item">
+                  <h4 class="scs__personalise-list--heading">Elective Subscription</h4>
+                  <ul class="scs__personalise-list">
+                     <li ng-repeat="electiveSub in myNewsTagsArr | filter:{ Subscription: 'Elective' } track by $index" class="scs__personalise-list--item">
+                        <input ng-click="filterArticles(electiveSub); updateSubscription(electiveSub)" type="checkbox" class="scs__personalise-list--input {{electiveSub.inputClass}}">
+                        <label for="scs__personalise-list--input" class="scs__personalise-list--label">{{electiveSub.Title}}</label>
+                     </li>
+                  </ul>
+               </li>
+         </section>
+         <ul class="scs__articles-heading-list">
+            <li class="scs__articles-heading-list--item">
+               <a target="_blank" ui-sref="submit-article" class="scs__articles-heading-list--link">Submit article <img
+                     src="siteUrl/SiteAssets/web-assets/assets/img/chevron-black.png" alt="black chevron" class="scs__articles-link-chevron"></a>
+            </li>
+            <li class="scs__articles-heading-list--item">
+               <a ng-click="showPersonalisation()" href="" class="scs__articles-heading-list--link">Personalize my news <img
+                     src="siteUrl/SiteAssets/web-assets/assets/img/chevron-black.png" alt="black chevron" class="scs__articles-link-chevron"></a>
+            </li>
+         </ul>
+         <ul class="scs__articles-legend-list">
+            <li class="scs__articles-legend-list--item">
+               <div class="scs__articles-legend-cont headlines"></div>Headlines
+            </li>
+            <li class="scs__articles-legend-list--item">
+               <div class="scs__articles-legend-cont team-update"></div>Team Update
+            </li>
+            <li class="scs__articles-legend-list--item">
+               <div class="scs__articles-legend-cont kudos"></div>Kudos and celebrations
+            </li>
+            <li class="scs__articles-legend-list--item">
+               <div class="scs__articles-legend-cont my-news"></div>My News
+            </li>
+         </ul>
+         <ul class="scs__articles-list">
+            <li ng-repeat="article in filteredArticlesArr" class="scs__articles-list--item">
+               <a ng-click="getArticle(article.ID, article.ArticleType)" ui-sref="other-news-child({articleType: article.ArticleType, articleTitle:article.Title})" class="scs__articles-list--link">
+                  <div class="scs__articles-list--legend {{article.borderColor}}"></div>
+                  <div class="scs__articles-list--title">{{article.Title}}</div>
+                  <div class="scs__articles-list--desc">{{article.Sub_x002d_Title}}</div>
+                  <div class="scs__articles-list--date" ng-bind="article.Date | date: 'dd/MMM/yyyy'"></div>
+               </a>
+            </li>
+         </ul>
+      </div>
+      <div class="scs__more-btn-cont">
+         <a ui-sref="other-news" class="scs__more-btn">View more articles <span class="scs__more-chevron"> </span>
+         </a>
+      </div>
+   </section>
+   <!-- Modal -->
+   <div class="modal scs__newsletter-modal fade" id="newsLetterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="newsLetterModalLabel" aria-hidden="true">
+      <div class="modal-dialog scs__newsletter-modal-dialog">
+         <div class="modal-content scs__newsletter-modal-content">
+            <div class="modal-body scs__newsletter-modal-body">
+               {{modalMessage}}
+            </div>
+            <div class="modal-footer scs__newsletter-modal-footer">
+               <button type="button" class="btn btn-secondary scs__newsletter-modal-btn" data-bs-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,327 @@
+.scs__news-wrapper{
+    @include mq($from: desktop){
+        background-image: url(siteUrl/SiteAssets/web-assets/assets/img/earth.png);
+        background-size: contain;
+        background-position: -221px 6px;
+        background-repeat: no-repeat;
+    }
+    .scs__news-intro-section{
+        padding: 2rem;
+
+        @include mq($from: desktop){
+            padding: 2rem 6rem;
+        }
+    }
+
+    .scs__news-heading-cont{
+        padding: 2rem 0;
+    }
+
+    .scs__news-heading{
+        @include fontSize(34px);
+        font-family: EYInterstate-Light, sans-serif;
+        padding-left: 1rem;
+        margin: 0 0 0 -1rem;
+        border-left: 3px solid $eyOffBlack;
+    }
+
+    .scs__news-filter-cont-list{
+        list-style: none;
+        padding: 0;
+        
+        @include mq($from: tablet){
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        @include mq($from: desktopMid){
+            justify-content: space-between;
+        }
+
+        &--heading{
+            @include fontSize(22px);
+            font-family: EYInterstate-Light, sans-serif;
+            color: $eyOffBlack;
+        }
+
+        &--item{
+            flex-basis: 100%;
+            margin-bottom: 3%;
+
+            // @include mq($from: tablet){
+            //     flex-basis: 48%;
+            //     margin-right: 1%;
+            // }
+
+            // @include mq($from: desktop){
+            //     flex-basis: 32%;
+            // }
+
+            // @include mq($from: desktopMid){
+            //     margin-right: 0;
+            // }
+        }
+    }
+
+    .scs__news-checkbox-cont{
+        background-color: transparentize($eyYellow, .48);
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .scs__news-checkbox-list{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+        &--item{
+            position: relative;
+            margin-right: 2rem;
+            display: flex;
+            @include fontSize(16px);
+            padding: 5px 0 !important;
+        } 
+    }
+    
+    // hide the checkbox
+    .scs__news-checkbox-input {
+        display: block !important;
+        opacity: 0;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 9px;
+        left: 2;
+        z-index: 150;
+        cursor: pointer;
+    }
+     
+    .scs__news-checkbox-input + label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        font-size: 14px !important;
+    }
+     
+    // style checkbox
+    .scs__news-checkbox-input[type="checkbox"] + label::before {
+        content: "";
+        width: 18px;
+        height: 18px;
+        border: 1px solid $eyOffBlack;
+        margin-right: 5px;
+        background-color: $scsBodyTextColor;
+        transition: background 300ms ease-in;
+    }
+     
+    .scs__news-checkbox-input[type="checkbox"] + label::after {
+        content: "\2713";
+        color: $eyOffBlack;
+        position: absolute;
+        left: 6px;
+        top: -4px;
+        transform: scale(0);
+        transition: all 300ms ease-in-out;
+    }
+     
+    .scs__news-checkbox-input[type="checkbox"]:checked + label::after {
+        transform: scale(2);
+    }
+     
+    .scs__news-checkbox-input[type="checkbox"]:checked + label::before {
+        background-color: $white;
+    }
+
+    .scs__articles-cont{
+        flex-basis: 100%;
+        padding: 2rem;
+        background-color: $scsEventsBgOpac;
+
+        @include mq($from: desktop){
+            padding: 2rem 6rem;
+        }
+    }
+
+    .scs__articles-heading-list{
+        list-style: none;
+        padding: 0;        
+        margin-bottom: 2rem;
+
+        @include mq($from: tablet){
+            display: flex;
+        }
+
+        &--item{
+            margin-right: 1.5rem;
+            margin-bottom: .5rem;
+        }
+
+        &--link{
+            font-family: EYInterstate-Regular, sans-serif;
+            @include fontSize(20px);
+        }
+    }
+
+    .scs__articles-link-chevron{
+        margin-left: 5px;
+    }
+
+    .scs__articles-legend-list{
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+
+        @include mq($from: tablet){
+            display: flex;
+        }
+
+        &--item{
+            margin-right: 1rem;
+        }
+    }
+
+    .scs__articles-legend-cont{
+        width: 13px;
+        height: 13px;
+        display: inline-block;
+        margin-right: 7px;
+        margin-bottom: -1px;
+    }
+
+    .team-update{
+        background-color: $eyOffBlack;
+    }
+
+    .headlines{
+        background-color: $eyYellow;
+    }
+
+    .kudos{
+        background-color: $scsEventBgColor;
+    }
+    
+    .my-news{
+        background-color: $eyPrimaryGreen;
+    }
+        
+    .scs__articles-list{
+        list-style: none;
+        padding: 0;
+        
+        @include mq($from: tablet){
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;            
+        }
+
+        // @include mq($from: desktopMid){
+        //     justify-content: space-between;
+        // }
+
+        // @include mq($from: desktopXL){
+        //     justify-content: flex-start;
+        // }
+
+        &--item{
+            width: 100%;
+            margin: 0 auto 4%;
+            background-color: $scsPaleGrey;
+            padding: 45px 30px;
+            position: relative;
+
+            @include mq($from: tablet){
+                flex-basis: 49%;
+                margin: 0;
+                padding: 20px 30px;
+                &:nth-child(odd){
+                    margin-right: 1%;
+                }
+                margin-bottom: 1%;
+            }
+
+            @include mq($from: desktop){
+                flex-basis: 31%;
+                &:nth-child(even){
+                    margin-right: 1%;
+                }
+
+                &:hover{
+                    background-color: $eyOffWhite;
+                    .scs__articles-list--legend{
+                        width: 100%;
+                    }
+                }
+            }
+
+            @include mq($from: desktopMid){
+                flex-basis: 24%;
+                margin-right: 0;
+            }
+
+            @include mq($from: desktopXL){
+                flex-basis: 16%;
+                margin-right: 1%;
+            }
+        }
+
+        &--legend{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            transition: .5s;
+        }
+
+        &--title{
+            font-family: EYInterstate-Regular, sans-serif;
+            @include fontSize(22px);
+            line-height: 1.1;
+            margin-bottom: 10px;
+
+            @include mq($from: tablet){
+                @include fontSize(18px);
+            }
+        }
+
+        &--desc{
+            @include fontSize(16px);
+            margin-bottom: 5px;
+
+            @include mq($from: tablet){
+                @include fontSize(14px);
+            }
+        }
+
+        &--date{
+            @include fontSize(12px);
+        }
+    }
+
+    .scs__child-news-attach {
+        flex-basis: 100%;
+
+        ul {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+
+        }
+    }
+
+}

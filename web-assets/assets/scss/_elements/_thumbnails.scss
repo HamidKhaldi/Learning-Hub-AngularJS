@@ -1,0 +1,604 @@
+/*.scs {
+	&__thumbnails {
+		margin-bottom: 50px;
+
+		@include mq($from: desktop) {
+			margin-bottom: 85px;
+		}
+	}
+	&__thumbnails-title {
+		margin-bottom: 30px;
+		@include fontSize(22px);
+		color: $eyOffBlack;
+		font-family: EYInterstate-Regular;
+
+		@include mq($from: desktop) {
+			margin-bottom: 80px;
+			@include fontSize(36px);
+		}
+	}
+	&__thumbnails-container {
+		display: flex;
+		background-color: $white;
+
+		@include mq($from: tablet) {
+			flex-direction: row;
+		}
+	}
+	&__thumbnails-media {
+		position: relative;
+		width: 50%;
+		padding-right: 0;
+
+		@include mq($from: tablet) {
+			padding-right: 25px;
+			margin-bottom: 0;
+		}
+	}
+	&__thumbnails-media-img {
+		width: 100%;
+		height: auto;
+	}
+	&__thumbnails-media-text {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 90%;
+		margin-bottom: 10px;
+		padding: 0 10px;
+		text-align: center;
+		color: $white;
+		@include fontSize(22px);
+		font-family: EYInterstate-Light;
+
+		@include mq($from: desktop) {
+			margin-bottom: 10px;
+			@include fontSize(22px);
+		}
+
+		@include mq($from: desktopXL) {
+			margin-bottom: 30px;
+			@include fontSize(30px);
+		}
+	}
+	&__thumbnails-content {
+		position: relative;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		@include mq($from: desktop) {
+			// padding: 0;
+		}
+	}
+	&__thumbnails-content-hidden {
+		display: block;
+
+		@include mq($from: desktop) {
+			display: none;
+		}
+	}
+	&__thumbnails-content-container {
+		position: relative;
+		height: 100%;
+		width: 100%;
+		margin-top: 10px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-direction: column;
+
+		@include mq($from: desktop) {
+			margin-top: 0;
+		}
+	}
+	&__thumbnails-content-title {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include fontSize(22px);
+		font-family: EYInterstate-Light;
+
+		&::after {
+			content: url(../../assets/img/small-arrow-black.png);
+			margin-top: 2px;
+			margin-left: 10px;
+		}
+
+		@include mq($from: tablet) {
+			@include fontSize(30px);
+		}
+
+		@include mq($from: desktop) {
+			&::after {
+				content: url(../../assets/img/arrow-black.png);
+				margin-top: 8px;
+				margin-left: 10px;
+			}
+		}
+	}
+	&__thumbnails-content-title-icon {
+		width: 39px;
+		height: 25px;
+		background-image: url(../../assets/img/arrow-black.png);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		@include mq($from: desktop) {
+			top: 6px;
+		}
+	}
+	&__thumbnails-content-text {
+		display: none;
+		@include fontSize(18px);
+		font-family: EYInterstate-Light;
+		padding-right: 20px;
+
+		@include mq($from: desktop) {
+			display: block;
+		}
+	}
+	&__thumbnails-action {
+		position: relative;
+		top: 20px;
+		left: 20px;
+		height: 100%;
+		width: 80%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		@include mq($from: desktop) {
+			width: 80%;
+			left: 20px;
+		}
+
+		.scs__intro-linklist {
+			width:  100%;
+		}
+
+		.scs__intro-link {
+			width:  auto;
+			list-style:  none;
+			padding: 9px 16px;
+			margin-bottom: 5px;
+			background-color: $eyPrimaryGray;
+
+			&:hover {
+				background-color: $eyYellow;
+			}
+			&-text {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				@include fontSize(14px);
+				line-height: 14px;
+
+				&::after {
+					content: url(../../assets/img/small-arrow-black.png);
+					margin-left: 6px;
+					margin-top: 6px;
+				}
+			}
+			@include mq($from: desktop) {
+				// width: 50%;
+				@include fontSize(18px);
+			}
+		}
+	}
+
+	&__thumbnails-action-title {
+		margin-bottom: 15px;
+		margin-left: 0;
+		@include fontSize(18px);
+		font-family: EYInterstate-Regular;
+		color: $eyOffBlack !important;
+		line-height: 18px;
+
+		@include mq($from: desktop) {
+			margin-bottom: 18px;
+			@include fontSize(20px);
+			line-height: 20px;
+			color: $eyOffWhite !important;
+		}
+	}
+
+	&__thumbnails-card-content {
+		width: 100%;
+		height: 250px;
+
+		@include mq($from: desktop) {
+			height: 100%;
+		}
+	}
+}
+
+.card-body {
+	position: relative;
+	width: 50%;
+	//height: 250px;
+	
+	@include mq($from: desktop) {
+		padding-left: 25px;
+		&:hover {
+			background-color: $white;
+			cursor: pointer;
+
+			.dots,.scs__experience-img {
+				display: none;
+			}
+
+			.scs__thumbnails-content-title,
+			.scs__thumbnails-content-title-icon,
+			.scs__thumbnails-content-text {
+				display: none;
+			}
+
+			.scs__thumbnails-content-hidden {
+				height: 100%;
+				display: block;
+				padding: 2rem;
+				//align-items: center;
+				//justify-content: center;
+				@include fontSize(14px);
+				font-family: EYInterstate-Light;
+				color: $eyOffBlack;
+			}
+		}
+	}
+}
+
+.scs__experience-img{
+	display: none;
+
+	@include mq($from: desktop){
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+
+.card {
+	width: 100%;
+	@extend %clearfix;
+	display:  block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	@include mq($from: desktop) {
+		flex-direction: row;
+	}
+
+	&:first-child {
+		margin-right: 0;
+
+		@include mq($from: desktop) {
+			margin-right: 40px;
+		}
+	}
+
+	&-image,
+	&-text {
+		width: 100%;
+		height: 100%;
+		float: left;
+	}
+
+	&-image {
+		position: relative;
+		width: 50%;
+		//height: 250px;
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+
+		@include mq($from: desktop) {
+		}
+	}
+
+	&-text {
+		position: relative;
+		padding-left: 0;
+		width: 50%;
+		//height: 250px;
+
+		@include mq($from: desktop) {
+			padding-left: 25px;
+		}
+	}
+
+	&-ordered {
+		flex-direction: column-reverse;
+
+		@include mq($from: desktop) {
+			flex-direction: row;
+		}
+
+		.card-body {
+			.scs__thumbnails-action {
+				&-title {
+					display: block;
+					margin-bottom: 15px;
+					@include fontSize(18px);
+					font-family: EYInterstate-Regular;
+					color: $eyOffBlack;
+					line-height: 18px;
+
+					@include mq($from: desktop) {
+						display: none;
+						margin-bottom: 18px;
+						@include fontSize(20px);
+						line-height: 20px;
+					}
+				}
+			}
+		}
+
+		.card-image {
+			.scs__thumbnails-action {
+				&-title {
+					display: none;
+					@include mq($from: desktop) {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.dots {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 54px;
+	height: 54px;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background-color: $scsHeroBgColor;
+	border-radius: 50%;
+
+	.dot {
+		background-color: $white;
+		width: 7px;
+		height: 7px;
+		margin: 0 2px;
+		border-radius: 50%;
+		border: 1px solid $white;
+	}
+
+	@include mq($from: desktop) {
+		display: flex;
+	}
+}
+
+
+
+.dots {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 54px;
+	height: 54px;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background-color: $scsHeroBgColor;
+	border-radius: 50%;
+
+	.dot {
+		background-color: $white;
+		width: 7px;
+		height: 7px;
+		margin: 0 2px;
+		border-radius: 50%;
+		border: 1px solid $white;
+	}
+
+	@include mq($from: desktop) {
+		display: flex;
+	}
+}	*/
+
+.bg-white {
+	background-color: $white;
+}
+
+.bg-grey {
+	background-color: $white;
+	transition: .5s;
+
+	@include mq($from: desktop) {
+		background-color: $eySharkGrey;
+	}
+}
+
+.bg-darkGrey {
+	background-color: $scsHeroBgColor;
+}
+
+.bg-yellow {
+	background-color: $eyYellow;
+}
+
+.card {
+	width:  100%;
+	min-height: 230px;
+	display:  block;
+    overflow: hidden;
+	@extend %clearfix;
+
+	&:hover {
+		.scs__card-assoc-desc {
+			opacity:  1;
+			transition: .3s;
+		}
+	}
+}
+
+.card-image {
+	width:  100%;
+	float:  left;
+	position: relative;
+	@include mq($from: desktop){
+		width:  50%;
+	}
+}
+
+.scs__thumbnails-action {
+	padding:  10px 14px;
+}
+
+.scs__thumbnails-action-title {
+	margin-bottom: 15px;
+	margin-left: 0;
+	@include fontSize(18px);
+	font-family: EYInterstate-Regular;
+	color: $eyOffWhite !important;
+	line-height: 18px;
+	padding-right:  10px;
+
+	@include mq($from: desktop) {
+		margin-bottom: 18px;
+		@include fontSize(20px);
+		line-height: 20px;
+		
+	}
+}
+
+.scs__intro-linklist {
+	width:  100%;
+	margin:  0;
+	padding:  0;
+}
+
+.scs__intro-link {
+	width:  auto;
+	list-style:  none;
+	padding: 9px 16px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	background-color: $eyPrimaryGray;
+
+	&:hover {
+		background-color: $eyYellow;
+	}
+	&-text {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		@include fontSize(14px);
+		line-height: 14px;
+
+		&::after {
+			content: url(../../assets/img/small-arrow-black.png);
+			margin-left: 6px;
+			margin-top: 6px;
+		}
+	}
+	@include mq($from: desktop) {
+		@include fontSize(18px);
+	}
+}
+
+.card-body {
+	width:  100%;
+	float: right;
+	position: relative;
+	padding: 0;
+	@include mq($from: desktop){
+		width:  50%;
+	}
+}
+
+.scs__card-assoc-image {
+	width: 100%;
+	background-size: cover;
+	background-position:  center center;
+	position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.scs__experience-img{
+	display: none;
+	@include mq($from: desktop){
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.dots {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 54px;
+	height: 54px;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background-color: $scsHeroBgColor;
+	border-radius: 50%;
+
+	.dot {
+		background-color: $white;
+		width: 7px;
+		height: 7px;
+		margin: 0 2px;
+		border-radius: 50%;
+		border: 1px solid $white;
+	}
+
+	@include mq($from: desktop) {
+		display: flex;
+	}
+}
+
+.scs__card-assoc-desc {
+	width:  100%;
+	height: 100%;
+	background-color: white;
+	opacity: 1;
+	@include mq($from: desktop) {
+		position: relative;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transition: .3s;
+	}
+}
+
+.scs__thumbnails-content-hidden {
+	height: 100%;
+	display: block;
+	padding: 2rem;
+	@include fontSize(14px);
+	font-family: EYInterstate-Light;
+	color: $eyOffBlack;
+}
+
+

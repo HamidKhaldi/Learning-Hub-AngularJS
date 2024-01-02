@@ -1,0 +1,98 @@
+<div class="scs__template-wrapper" ng-controller="aboutCtrl">
+    <section class="scs__hero-section" ng-Style="{backgroundImage: 'url(' + selectedPage.Hero_x002d_Banner.Url + ')'}" >
+        <div class="scs__hero-intro-cont">
+        <h3 class="scs__hero-intro-heading" ng-Style='{color: selectedPage.Page_x002d_Title_x002d_Color}'>{{selectedPage.Title}}</h3>
+        <div class="scs__hero-intro-para" ng-Style='{color: selectedPage.Page_x002d_Title_x002d_Color}' ng-bind-html="selectedPage.Hero_x002d_Intro"></div>
+        </div>
+        <div class="scs__hero-yammer-cont">
+            <a href="https://web.yammer.com/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI0NzkxMzg3In0/new" target="_blank" class="scs__hero-yammer-link"></a>
+        </div>
+    </section>
+    <section class="scs__about-intro-section">
+        <div class="scs__about-heading-cont">
+            <h3 class="scs__about-heading">About SCS</h3>
+        </div>
+        <div ng-show="IsVideoTemplate">
+            <div class="scs__about-intro-cont" ng-bind-html="selectedPage.Page_x002d_Description">
+            </div>   
+         </div>
+        <!--video layout -->
+        <div class="scs__about-media-cont" ng-hide="IsVideoTemplate">
+            <div class="scs__about-intro-media--text" ng-bind-html="selectedPage.Page_x002d_Description">
+            </div> 
+            <div class="scs__about-intro-media--video" style='max-width: 640px'>
+                <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;'><iframe width="640" height="360" ng-src="{{selectedPageVideo}}" allowfullscreen style="border:none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; max-width: 100%;"></iframe></div>
+            </div>
+        </div>               
+    </section>
+    <section class="scs__about-main-section" cardheight>
+     <h3 class="scs__experience-heading--template">Resources</h3>
+        <ul class="scs__experience-card-list">
+            <li ng-repeat="experience in selectedPage.experienceArr | orderBy: 'Order1' track by $index" class="scs__experience-card-list--item">
+               <div class="card-wrapper">
+                 <div class="card card-ordered">
+                   <div class="card-image bg-darkGrey">
+                      <div class="scs__thumbnails-action">
+                         <h4 class="scs__thumbnails-action-title">{{experience.Title}}</h4>
+                         <ul class="scs__intro-linklist">
+                            <li ng-repeat="link in experience.linkDetailsArr" class="scs__intro-link">
+                               <a href="{{link.Url}}" class="scs__intro-link-text">{{link.Title}}</a>
+                            </li>
+                         </ul>
+                      </div>
+                   </div>
+                   <div class="card-body">
+                      <div class="scs__card-assoc-image" ng-Style="{backgroundImage: 'url(' + experience.Image + ')'}">
+                         <div class="dots">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                         </div>
+                      </div>
+                      <div class="scs__card-assoc-desc">
+                         <div class="scs__thumbnails-content-hidden" ng-bind-html="experience.Description">
+                         </div>
+                      </div>
+                   </div>
+                </div>
+               </div>
+            </li>
+        </ul>
+        <div class="scs__team-cont">
+            <div class="scs__team-cont-inner" ng-show="!hideTeam">
+               <h4 class="scs__about-team-sub-heading mt-5">Leader</h4>
+               <ul class="scs__about-team-lead-list">
+                   <li class="scs__about-team-lead-list--item">
+                       <img src="https://eygb.sharepoint.com/sites/supplychainservices/_layouts/15/userphoto.aspx?size=M&username={{selectedPage.leaderDetails.Email}}" alt="{{selectedPage.leaderDetails.Title}}" class="scs__about-team-lead-list--img">
+                       <ul class="scs__about-team-details">
+                           <li class="scs__about-team-details--item">{{selectedPage.leaderDetails.DisplayName}}</li>
+                           <li class="scs__about-team-details--item">{{selectedPage.leaderDetails.Title}}</li>
+                       </ul>
+                   </li>
+               </ul>
+               <h4 class="scs__about-team-sub-heading">Executive Team</h4>        
+               <div class="scs__about-links-cont">
+                   <ul class="scs__about-team-lead-list scs__about-team-sublead-list">
+                       <li ng-repeat="member in selectedPage.teamArr | orderBy" class="scs__about-team-lead-list--item scs__about-team-sublead-list--item">
+                           <img src="https://eygb.sharepoint.com/sites/supplychainservices/_layouts/15/userphoto.aspx?size=M&username={{member.Email}}" class="scs__about-team-lead-list--img" alt="{{member.Title}}">
+                           <ul class="scs__about-team-details">
+                               <li class="scs__about-team-details--item">{{member.DisplayName}}</li>
+                               <li class="scs__about-team-details--item">{{member.Title}}</li>
+                           </ul>
+                       </li>
+                   </ul>
+               </div>
+            </div>
+            <ul class="scs__about-links-list">
+               <li ng-repeat="quickLink in selectedPage.quickLinksArr" class="scs__about-links-list--item">
+                   <a href="{{quickLink.Url.Url}}" class="scs__about-links-list--link">{{quickLink.Title}}
+                       <div class="scs__about-list-arrow"></div>
+                       <img src="https://eygb.sharepoint.com/sites/supplychainservices/SiteAssets/web-assets/assets/img/external-link.png" alt="external link img" class="scs__external-link-img">
+                   </a>
+               </li>
+           </ul>
+        </div>
+    </section>
+ </div>
+ 
+ 

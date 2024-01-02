@@ -1,0 +1,34 @@
+<div class="scs__template-wrapper scs__secondary-template-wrapper" ng-controller="secondaryTemplateCtrl">
+    <section class="scs__hero-section" ng-Style="{backgroundImage: 'url(' + selectedPage.Page_x002d_Banner.Url + ')'}" >
+    <div class="scs__hero-intro-cont">
+       <h3 class="scs__hero-intro-heading">{{selectedPage.Title}}</h3>
+       <div class="scs__hero-intro-para" ng-bind-html="selectedPage.Page_x002d_Sub_x002d_Title"></div>
+    </div>
+    </section>
+    <section class="scs__secondary-template--main-section">
+        <div class="scs__secondary-template--left-cont">
+            <h3 class="scs__secondary-template--heading" ng-bind-html="selectedPage.Main_x002d_Content_x002d_Heading"></h3>
+            <div class="scs__secondary-template--content" ng-bind-html="selectedPage.Page_x002d_Description"></div>
+        </div>
+        <div class="scs__secondary-template--right-cont">
+            <h5 class="scs__child-news-attachment-heading" ng-if="selectedPage.quickLinksArr.length > 0">Quick Links</h5>
+            <ul class="scs__about-links-list scs__secondary-template--links-list" ng-if="selectedPage.quickLinksArr.length > 0">
+                <li ng-repeat="quickLink in selectedPage.quickLinksArr" class="scs__about-links-list--item">
+                    <a href="{{quickLink.Url.Url}}" class="scs__about-links-list--link">{{quickLink.Title}}
+                        <div class="scs__about-list-arrow"></div>
+                        <img src="https://eygb.sharepoint.com/sites/supplychainservices/SiteAssets/web-assets/assets/img/external-link.png" alt="external link img" class="scs__external-link-img">
+                    </a>
+                </li>
+            </ul>
+            <h5 class="scs__child-news-attachment-heading" ng-if="selectedPage.attachmentArr.length > 0">Document Links</h5>
+            <ul ng-if="selectedPage.attachmentArr.length > 0" class="scs__child-news-attachments-list">
+                <li ng-repeat="attachment in selectedPage.attachmentArr" class="scs__child-news-attachments-list--item">
+                    <a href="{{attachment.Link}}" class="scs__child-news-attachments-list--link">
+                        <img src="siteUrl/SiteAssets/web-assets/assets/img/doc-icon.png" alt="doc icon" class="scs__child-news-attachments-list--img">
+                        <span class="scs__child-news-attachments-list--title">{{attachment.Title}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>               
+    </section>
+</div>

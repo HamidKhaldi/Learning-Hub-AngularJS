@@ -1,0 +1,72 @@
+<div class="scs__news-wrapper" ng-controller="newsCtrl">
+    <section class="scs__news-intro-section">
+        <div class="scs__news-heading-cont">
+            <h3 class="scs__news-heading">Other News</h3>
+        </div>        
+        <ul class="scs__news-filter-cont-list">
+            <!-- <li class="scs__news-filter-cont-list--item">
+                <h4 class="scs__news-cont-list--item">Headlines</h4>
+                <ul class="scs__news-checkbox-list">
+                    <li ng-repeat="headlineTag in headlinesTagsArr" class="scs__news-checkbox-list--item">
+                        <input ng-click="filterArticles(headlineTag.Title, 'headline')" type="checkbox" name="Filter" class="scs__news-checkbox-input">
+                        <label class="scs__news-checkbox-label" for="filter">{{headlineTag.Title}}</label>
+                    </li>
+                </ul>
+            </li>
+            <li class="scs__news-filter-cont-list--item">
+                <h4 class="scs__news-cont-list--item">Team Update</h4>
+                <ul class="scs__news-checkbox-list">
+                    <li ng-repeat="updateTag in updatesTagsArr" class="scs__news-checkbox-list--item">
+                        <input ng-click="filterArticles(updateTag.Title, 'team-update')" type="checkbox" name="Filter" class="scs__news-checkbox-input">
+                        <label class="scs__news-checkbox-label" for="filter">{{updateTag.Title}}</label>
+                    </li>
+                </ul>
+            </li>
+            <li class="scs__news-filter-cont-list--item">
+                <h4 class="scs__news-cont-list--item">Kudos and celebrations</h4>
+                <ul class="scs__news-checkbox-list">
+                    <li ng-repeat="kudosTag in kudosTagsArr" class="scs__news-checkbox-list--item">
+                        <input ng-click="filterArticles(kudosTag.Title, 'kudos')" type="checkbox" name="Filter" class="scs__news-checkbox-input">
+                        <label class="scs__news-checkbox-label" for="filter">{{kudosTag.Title}}</label>
+                    </li>
+                </ul>
+            </li> -->
+            <li class="scs__news-filter-cont-list--item">
+                <!-- <h4 class="scs__news-cont-list--item">My News</h4> -->
+                <ul  class="scs__news-checkbox-list">
+                    <li ng-show="userInGroup" ng-repeat = "myNewsTag in myNewsTagsArr | filter:{ Subscription: 'Managed' }" class="scs__news-checkbox-list--item">
+                        <input ng-click="filterArticles(myNewsTag.Title, 'my-news')" type="checkbox" name="Filter" class="scs__news-checkbox-input">
+                        <label class="scs__news-checkbox-label" for="filter">{{myNewsTag.Title}}</label>
+                    </li>
+                    <li ng-repeat = "myNewsTag in myNewsTagsArr | filter:{ Subscription: 'Elective' } track by $index" class="scs__news-checkbox-list--item">
+                        <input ng-click="filterArticles(myNewsTag.Title, 'my-news')" type="checkbox" name="Filter" class="scs__news-checkbox-input">
+                        <label class="scs__news-checkbox-label" for="filter">{{myNewsTag.Title}}</label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <section class="scs__articles-cont">
+        <ul class="scs__articles-legend-list">
+            <li class="scs__articles-legend-list--item">
+                <div class="scs__articles-legend-cont headlines"></div>Headlines</li>
+            <li class="scs__articles-legend-list--item">
+                <div class="scs__articles-legend-cont team-update"></div>Team Update</li>
+            <li class="scs__articles-legend-list--item">
+                <div class="scs__articles-legend-cont kudos"></div>Kudos and celebrations
+            </li>
+            <li class="scs__articles-legend-list--item">
+            <div class="scs__articles-legend-cont my-news"></div>My News</li>
+        </ul>
+        <ul class="scs__articles-list">
+            <li ng-repeat="article in filteredArticlesArr" class="scs__articles-list--item">
+                <a ng-click="getArticle(article.ID, article.ArticleType)" ui-sref="other-news-child({articleType: article.ArticleType, articleTitle:article.Title})" class="scs__articles-list--link">
+                   <div class="scs__articles-list--legend {{article.borderColor}}"></div>
+                   <div class="scs__articles-list--title">{{article.Title}}</div>
+                   <div class="scs__articles-list--desc">{{article.Sub_x002d_Title}}</div>
+                   <div class="scs__articles-list--date" ng-bind="article.Date | date: 'dd/MMM/yyyy'"></div>
+                </a>
+             </li>
+        </ul>
+    </section>
+</div>

@@ -1,0 +1,472 @@
+.scs__calendar-section{
+	padding: 2rem;
+    background-color: $scsBodyBgColor;
+}
+
+.scs__calendar {
+	&-wrapper {
+		padding: 2rem 0;
+		background-color: $scsHeroBgColor;
+
+		@include mq($from: desktop) {
+			padding: 1rem 2rem;
+		}
+
+		// @include mq($from: desktopMid) {
+		// 	padding: 80px 75px 85px 65px;
+		// }
+
+		.calendar-navbar {
+			margin: 35px 40px 0 35px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			flex-direction: row;
+
+			@include mq($from: desktop) {
+				margin-left: 8px;
+			}
+
+			.calendar-header {
+				margin-left: 15px;
+				margin-right: 15px;
+				padding-top: 0;
+				@include fontSize(22px);
+				font-family: EYInterstate-Regular, sans-serif;
+				font-weight: inherit;
+				color: $scsBodyTextColor;
+
+				@include mq($from: desktop) {
+					margin-left: 23px;
+					margin-right: 23px;
+					@include fontSize(28px);
+				}
+			}
+
+			.nav-left,
+			.nav-right {
+				position: relative;
+				width: 12px;
+				height: 20px;
+
+				.btn {
+					width: 100%;
+					height: 100%;
+
+					&:hover{
+						background-color: transparent !important;
+						border-color: transparent !important;
+						color: transparent !important;
+					}
+				}
+			}
+		}
+	}
+	&-container {
+		padding: 1rem;
+
+		@include mq($from: desktop) {
+			padding: 0 3rem 3rem;
+		}
+
+		@include mq($from: desktopXL) {
+			padding: 0 8rem 3rem;
+		}
+	}
+	&-context {
+		display: flex;
+		align-items: flex-start;
+		// justify-content: center;
+		justify-content: space-between;
+		flex-direction: column;
+
+		@include mq($from: desktopMid) {
+			flex-direction: row;
+		}
+
+		> .table {
+			display: none;
+
+			@include mq($from: desktop) {
+				display: block;
+				
+			}
+
+			@include mq($from: desktopMid){
+				width: 54%;
+			}
+		}
+
+		/* .table,
+		.event-detail-container {
+			width: 100%;
+
+			@include mq($from: desktopMid) {
+				width: 50%;
+			}
+		} */
+
+		.table {
+			border-collapse: separate;
+			border-spacing: 8px;
+
+			thead tr,
+			tbody tr {
+				border: 0;
+			}
+
+			thead th {
+				color: $eySharkGrey;
+				border: 0;
+				@include fontSize(18px);
+				font-family: EYInterstate-Light, sans-serif;
+			}
+
+			tbody {
+				border-top: 0;
+
+				td {
+					width: 118px;
+					height: auto;
+					padding: 22px;
+					border: 0;
+					background-color: rgba(116, 116, 128, 0.5);
+					color: $scsTextColor;
+					@include fontSize(24px);
+					font-family: EYInterstate-Regular, sans-serif;
+
+					&:hover{
+						cursor: pointer;
+					}
+
+					// @include mq($from: tablet) {
+					// 	padding: 22px;
+					// }
+
+					// @include mq($from: desktopWide) {
+					// 	padding: 44px;
+					// }
+				}
+			}
+
+			.monthview-selected {
+				background-color: $eyYellow;
+			}
+
+			.monthview-primary-with-event,
+			.monthview-secondary-with-event {
+				background-color: $eyYellow;
+				opacity: 21%;
+			}
+		}
+
+		.event-detail-container {
+			width: 100%;
+			margin-top: 51px;
+			// margin-left: 70px;
+			border-top: 0;
+
+			.table {
+				width: 100%;
+			}
+
+			@include mq($from: desktopMid) {
+				width: 40%;
+			}
+		}
+
+		.text-muted {
+			color: $scsTextColor !important;
+		}
+	}
+	&-previous-month {
+		content: url(siteUrl/SiteAssets/web-assets/assets/img/chevron-white.png);
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 12px;
+		height: 20px;
+		transform: rotateY(180deg);
+	}
+	&-next-month {
+		content: url(siteUrl/SiteAssets/web-assets/assets/img/chevron-white.png);
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 12px;
+		height: 20px;
+	}
+	&-highlighted {
+		background-color: $eyYellow;
+	}
+	&-highlighted-past {
+		background-color: $eyYellow;
+		opacity: 21%;
+	}
+	&-past-month_bg-color {
+		background-color: $eySharkGrey;
+	}
+	&-current-month_bg-color {
+		background-color: $eySharkGrey;
+		opacity: 50%;
+	}
+	&-filter {
+		margin-top: 50px;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 10px 20px;
+
+		@include mq($from: desktop) {
+			flex-direction: row;
+			// justify-content: space-between;
+		}
+	}
+	&-filter-item {
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		@include mq($from: desktop) {
+			margin-right: 130px;
+		}
+	}
+	&-filter-item-input {
+		margin-right: 9px;
+		width: 23px;
+		height: 23px;
+
+		display: block !important;
+		opacity: 0;
+		position: absolute;
+		width: 23px;
+		height: 23px;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		cursor: pointer;
+	}
+	&-filter-item-label {
+		position: relative;
+		display: flex;
+		align-items: center;
+		color: $eyPrimaryGray;
+		@include fontSize(18px);
+		font-family: EYInterstate-Regular, sans-serif;
+		line-height: 1;
+		cursor: pointer;
+
+		@include mq($from: desktop) {
+			@include fontSize(20px);
+		}
+	}
+	&-filter-item-input[type='checkbox'] + &-filter-item-label::before {
+		content: '';
+		width: 23px;
+		height: 23px;
+		// border: 1px solid #2e2e38;
+		margin-right: 5px;
+		background-color: #e1e1e6;
+		transition: all 300ms ease-in;
+	}
+	&-filter-item-input[type='checkbox']:checked + &-filter-item-label::before {
+		background-color: $white;
+	}
+	&-filter-item-input[type='checkbox'] + &-filter-item-label::after {
+		content: '✓';
+		position: absolute;
+		left: 5px;
+		top: 3px;
+		color: $eyOffBlack;
+		transform: scale(0);
+		transition: all 300ms ease-in-out;
+	}
+	&-filter-item-input[type='checkbox']:checked + &-filter-item-label::after {
+		transform: scale(1.5);
+	}
+	&-event-box {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: row;
+		padding: 10px 15px;
+		margin-bottom: 8px;
+		background-color: rgba(116, 116, 128, 0.2);
+		direction: ltr;
+
+		@include mq($from: desktop) {
+			// padding: 15px 25px;
+
+			&:hover {
+				background-color: $eyYellow;
+				cursor: pointer;
+
+				.scs__calendar-event-box-item-title {
+					color: $eyOffBlack;
+					font-family: EYInterstate-Regular, sans-serif;
+				}
+
+				.scs__calendar-event-box-item-text {
+					color: $eyOffBlack;
+					font-family: EYInterstate-Light, sans-serif;
+				}
+			}
+		}
+
+		.event-detail {
+			width: 80%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			white-space: pre-wrap;
+			padding-left: 20px;
+			border-left: 1px solid $eyGrey;
+
+			@include mq($from: desktop) {
+				width: 80%;
+			}
+		}
+	}
+	&-no-event {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 15px 25px;
+		margin-bottom: 8px;
+		background-color: rgba(116, 116, 128, 0.2);
+
+		.no-event-label {
+			color: $eyYellow;
+			@include fontSize(24px);
+			font-family: EYInterstate-Regular, sans-serif;
+		}
+	}
+	&-event-box-item {
+		margin-bottom: 0;
+	}
+	&-event-box-item-date {
+		width: 20%;
+		margin-right: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		color: $eyPrimaryGray;
+		@include fontSize(45px);
+		font-family: EYInterstate-Light, sans-serif;
+
+		@include mq($from: desktop) {
+			width: 20%;
+		}
+	}
+	&-event-box-item-day {
+		color: $eyPrimaryGray;
+		@include fontSize(31px);
+		font-family: EYInterstate-Light, sans-serif;
+		line-height: 20px;
+
+		@include mq($from: desktop) {
+			@include fontSize(45px);
+			line-height: 45px;
+		}
+	}
+	&-event-box-item-month {
+		color: $eyPrimaryGray;
+		@include fontSize(14px);
+		font-family: EYInterstate-Light, sans-serif;
+		line-height: 21px;
+
+		@include mq($from: desktop) {
+			@include fontSize(20px);
+			line-height: 30px;
+		}
+	}
+	&-event-box-item-time {
+		color: $eyPrimaryGray;
+		@include fontSize(14px);
+		font-family: EYInterstate-Light, sans-serif;
+		line-height: 21px;
+	}
+	&-event-box-item-title {
+		margin-bottom: 4px;
+		color: $eyYellow;
+		@include fontSize(18px);
+		font-family: EYInterstate-Regular, sans-serif;
+		line-height: 15px;
+		margin: 0 !important;
+
+		@include mq($from: desktop) {
+			margin-bottom: 5px;
+			@include fontSize(24px);
+			line-height: 30px;
+		}
+	}
+	&-event-box-item-text {
+		margin-bottom: 0;
+		color: $eyPrimaryGray;
+		@include fontSize(14px);
+		font-family: EYInterstate-Light, sans-serif;
+		line-height: 18px;
+		margin: 0 !important;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		line-clamp: 2;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		min-height: 0;
+		overflow-y: scroll;
+
+		@include mq($from: desktop) {
+			@include fontSize(18px);
+			line-height: 24px;
+		}
+	}
+	&-add-event {
+		display: inline-block;
+	}
+	&-add-event-btn {
+		position: relative;
+		padding: 10px 38px 10px 15px;
+		margin-bottom: 11px;
+		background-color: $eyYellow;
+		border: none;
+		color: $eyOffBlack;
+		@include fontSize(22px);
+		font-family: EYInterstate-Light, sans-serif;
+		line-height: 21px;
+
+		&:hover{
+			background-color: $eyOffBlack; 
+			color: $eyYellow !important;
+
+			.scs__calendar-add-event-btn-icon{
+				content: url(siteUrl/SiteAssets/web-assets/assets/img/chevron-yellow.png);
+			}
+		}
+	}
+
+	&-add-event-btn-icon {
+		content: url(siteUrl/SiteAssets/web-assets/assets/img/chevron-black.png);
+		position: absolute;
+		right: 17px;
+		top: 12px;
+		width: 10px;
+		// height: 20px;
+	}
+}
+
+.scrollable {
+	direction: rtl;
+	width: 90%;
+	margin: auto;
+
+	@include mq($from: desktopMid) {
+		padding-left: 20px;
+		width: 100%;
+		margin: unset;
+		margin-left: auto;
+		// margin-left: 30px;
+	}
+}

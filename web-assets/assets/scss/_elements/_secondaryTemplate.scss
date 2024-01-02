@@ -1,0 +1,46 @@
+.scs__secondary-template-wrapper{
+    background-color: $scsEventsBgOpac;
+
+    .scs__secondary-template{
+
+        &--main-section{
+            padding: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+
+            @include mq($from: desktop){
+                padding: 4rem 6rem;
+            }
+        }
+
+        &--heading{
+            @include fontSize(26px);
+            margin-bottom: 4rem;
+        }
+
+        &--left-cont{
+            flex-basis: 100%;
+            padding-bottom: 5rem;
+
+            @include mq($from: desktop){
+                flex-basis: 65%;
+                padding-bottom: 0;
+                padding-right: 5rem;
+            }
+        }
+
+        &--right-cont{
+            flex-basis: 100%;
+
+            @include mq($from: desktop){
+                flex-basis: 35%;
+            }
+
+        }
+
+        &--links-list{
+            margin-top: 0;
+            margin-bottom: 5rem;
+        }
+    }
+}

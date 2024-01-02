@@ -1,0 +1,51 @@
+.scs__search-wrapper{
+
+    padding: 2rem;
+
+    @include mq($from: desktop){
+        padding: 3rem 8rem;
+    }
+
+    .scs__search-heading{
+        @include fontSize(42px);
+        font-family: EYInterstate-Light, sans-serif;
+    }
+
+    .scs__search-sub-heading{
+        @include fontSize(20px);
+        margin-bottom: 2rem;
+    }
+
+    .scs__search-results-list{
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &--item{
+            position: relative;
+            flex-basis: 100%;
+            margin-bottom: 2rem;  
+
+            @include mq($from: desktop){
+                flex-basis: 46%;
+            }
+        }
+
+        &--date{
+            margin-bottom: 0;
+        }
+
+        &--title{
+            @include fontSize(30px);
+            font-family: EYInterstate-Light, sans-serif;
+            margin-bottom: 0;
+        }
+
+        &--img{
+            margin-left: 10px;
+        }
+    }
+
+}

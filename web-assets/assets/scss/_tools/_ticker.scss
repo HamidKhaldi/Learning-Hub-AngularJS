@@ -1,0 +1,151 @@
+.scs__ticker-cont{
+    position: relative;
+    bottom: -35px;
+    left: 0;
+
+    @include mq($from: desktop){
+      width: 61%;
+      bottom: -60px;
+    }
+
+    
+}
+
+.scs__ticker-span{
+  margin-left: 30px;
+}
+
+.news-ticker-mobile{
+  display: block;
+  top: 3.5rem;
+  width: 200%;
+  right: -130px;
+
+  @include mq($from: midMobile){
+    width: 170%;
+  }
+
+  @include mq($from: tablet){
+    display: none;
+    top: 1rem;
+    width: 100%;
+  }
+}
+
+.news-ticker-desktop{
+  // display: none;
+  // @include mq($from: desktop){
+    display: block;
+    top: 70px;
+    width: 100%;
+
+    @include mq($from: midMobile){
+      top: 95px;
+    }
+
+    @include mq($from: desktop){
+      top: 70px;
+    }
+  // }
+}
+
+.newsTicker {
+    position: absolute;
+    background-color: $eyYellow;
+    color: $white;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    // padding-top: 10px;
+    // padding-bottom: 5px;
+    z-index: 98;
+
+    @include mq($from: desktop){
+      background-color: transparent;
+      background-image: linear-gradient(to right, $eyYellow 86%, transparent);
+    }
+
+    &:hover{
+      .scs__ticker-link-cont{
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  
+  
+  .scs__ticker-link{
+    text-decoration: none;
+    color: $eyOffBlack !important;
+    margin-right: 2rem;
+ 
+    // &:hover{
+    //   color: $eyYellow !important;
+    //   background-color: transparent;
+    // }
+  }
+  
+  .scs__ticker-link-cont {
+    margin: 0;
+    display: inline-block;
+    @include fontSize(24px);
+    padding-left: 100%;
+    margin: 0 !important;
+    animation: tickerTape 30s linear infinite;
+  }
+  @keyframes tickerTape {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+ 
+  .scs__ticker--item-cont{
+    display: inline-flex;
+    padding-left: 20px;
+  }
+  
+  .scs__ticker--date-cont{
+    display: inline-grid;
+    padding-right: 15px;
+  }
+
+  .scs__ticker--date-num{
+    @include fontSize(32px);
+  }
+
+  .scs__ticker--date-month{
+    text-align: center;
+    @include fontSize(18px);
+    margin-top: -15px;
+  }
+
+  .scs__ticker--separator{
+    border-left: 1px solid $eySharkGrey;
+    display: block;
+    height: 55px;
+    margin: auto;
+  }
+
+  .scs__ticker--desc-cont{
+    display: inline-grid;
+    padding-top: 8px;
+    padding-left: 15px;
+  }
+
+  .scs__ticker--desc-heading{
+    font-family: EYInterstate-Regular,sans-serif;
+    @include fontSize(18px);
+  }
+
+  .scs__ticker--desc-para{
+    @include fontSize(14px);
+    margin-top: -13px;
+  }
+  
+  .scs__ticker--item-img{
+    width: 26px;
+    margin-top: -14px;
+  }

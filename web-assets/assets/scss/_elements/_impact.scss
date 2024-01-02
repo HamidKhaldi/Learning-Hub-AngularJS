@@ -1,0 +1,45 @@
+.scs__home-wrapper{
+
+    .scs__impact-intro-section{
+        min-height: 62vh;
+        overflow-y: hidden;
+    }
+
+    .scs__home-impact-list{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+        &--item{
+            padding: 15px 20px;
+            background-color: $eyPrimaryGray;
+            margin: 0 2rem 2rem 0;
+      
+            &:hover{
+                background-color: $eyYellow;
+            }
+        }
+    
+        &--link{
+            text-decoration: none;
+            color: $eyOffBlack;
+    
+            &::after {
+                content: url(../../assets/img/small-arrow-black.png);
+                position: relative;
+                top: 3px;
+                margin-left: 10px;
+                
+            }
+    
+            &:hover{
+                text-decoration: none;
+                color: $eyOffBlack;
+            }
+        }
+    }
+}
+

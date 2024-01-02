@@ -1,0 +1,185 @@
+#scs__main-wrapper{
+    .ey__ham-menu-cont {
+        position: relative;
+        z-index: 100;
+
+        @include mq($from: desktop){
+            display: none;
+        }
+    }
+
+    .ey__ham-menu-toggle-cont {
+        width: 95px;
+        height: 70px;
+        background-color: #2e2e38;
+        padding: 4px 5px;
+        float: right;
+    }
+
+    .ey__ham-menu-toggle {
+        color: #ffffff;
+        font-size: 0;
+        border: 0px none;
+        padding: 4px 0;
+    }
+
+    .ey__ham-menu-toggle .navbar-toggler-icon {
+        width: 95px;
+        height: 77px;
+    }
+
+    #menuToggle {
+        width: 54px;
+        height: 38px;
+        position: relative;
+        margin: 35px 26px;
+        display: block;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: 0.5s ease-in-out;
+        -moz-transition: 0.5s ease-in-out;
+        -o-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        cursor: pointer;
+    }
+
+    #menuToggle span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 60%;
+        background: $white;
+        border-radius: 0px;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: 0.25s ease-in-out;
+        -moz-transition: 0.25s ease-in-out;
+        -o-transition: 0.25s ease-in-out;
+        transition: 0.25s ease-in-out;
+    }
+
+    #menuToggle span:nth-child(1) {
+        top: 0px;
+    }
+
+    #menuToggle span:nth-child(2),
+    #menuToggle span:nth-child(3) {
+        top: 8px;
+    }
+
+    #menuToggle span:nth-child(4) {
+        top: 17px;
+    }
+
+    #menuToggle.open span:nth-child(1) {
+        top: 15px;
+        width: 0%;
+        left: 50%;
+    }
+
+    #menuToggle.open span:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    #menuToggle.open span:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    #menuToggle.open span:nth-child(4) {
+        top: 15px;
+        width: 0%;
+        left: 50%;
+    }
+
+    .ey__popout-menu {
+        width: 0;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        opacity: 0;
+        transition: 0.7s;
+        display: block;
+        z-index: 45;
+        overflow: hidden;
+    }
+
+    .ey__popout-menu.active {
+        width: 100vw;
+        opacity: 1;
+        transition: 0.7s;
+    }
+
+    .ey__main-nav-list {
+        width: 100%;
+        background: $eyOffBlack;
+        padding: 40px 30px;
+        margin: 0;
+        list-style-position: inside;
+    }
+
+    .ey__main-nav-listitem {
+        width: 100%;
+        min-width: 300px;
+        list-style: none;
+
+        &:last-child{
+            margin-top: 20px;
+            margin-bottom: 0;
+            font-family: EYInterstate-Regular, sans-serif;
+
+            p{
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    .ey__main-nav-anchor {
+        width: 100%;
+        color: $eyOffWhite;
+        // @include fontSize(20px);
+        letter-spacing: -0.015em;
+        display: inline-block;
+        padding: 2px 15px;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .ey__main__quicklinks-list{
+        list-style: none;
+        padding: 0;
+        padding-left: 17px;
+
+        &--link{
+            text-decoration: none;
+            color: $eyOffWhite;
+            font-family: EYInterstate-light, sans-serif;
+
+            &:hover{
+                text-decoration: none;
+            }
+        }
+
+        &--img{
+            margin-top: -4px;
+            margin-left: 7px;
+        }
+    }
+}
+
+
+
+
+

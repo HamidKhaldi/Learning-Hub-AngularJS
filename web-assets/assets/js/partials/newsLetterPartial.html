@@ -1,0 +1,39 @@
+<div class="scs__newsletter-wrapper" ng-controller="newsletterCtrl">
+    <h2 class="scs__newsletter-heading">Submit your Editorial</h2>
+    <section class="scs__newsletter-section">
+        <div class="row g-3 mb-3">
+            <div class="col input-group-lg">
+                <label for="First Name" class="scs__newsletter-input-label">Display Name*</label>
+                <input type="text" name="displayName" ng-model="displayName" class="form-control scs__newsletter-form-control" aria-label="Display Name">
+            </div>
+        </div>
+        <div class="row g-3 mb-3">
+            <div class="col input-group-lg">
+                <label for="Job Title" class="scs__newsletter-input-label">Job Title*</label>
+                <input type="text" name="jobTitle" ng-model="jobTitle" class="form-control scs__newsletter-form-control" aria-label="Job Title">
+            </div>
+        </div>
+        <div class="row g-3 mb-3 ">
+            <div class="col input-group-lg">
+                <label for="Editorial" class="scs__newsletter-input-label">Editorial*</label>
+                <textarea ui-tinymce="tinymceOptions" id="newsLetterTextArea" name="editorialText" ng-model="editorialText"class="form-control scs__newsletter-form-control" aria-label="Editorial"></textarea>
+            </div>
+        </div>
+        <div class="col-12 mb-3">
+            <a ng-click="submitEditorial(displayName, jobTitle, editorialText)" type="submit" class="btn scs__newsletter-submit-btn">Submit</a>
+        </div>
+    </section>
+    <!-- Modal -->
+    <div class="modal scs__newsletter-modal fade" id="newsLetterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="newsLetterModalLabel" aria-hidden="true">
+        <div class="modal-dialog scs__newsletter-modal-dialog">
+            <div class="modal-content scs__newsletter-modal-content">
+                <div class="modal-body scs__newsletter-modal-body">
+                    {{modalMessage}}
+                </div>
+                <div class="modal-footer scs__newsletter-modal-footer">
+                    <button type="button" class="btn btn-secondary scs__newsletter-modal-btn" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

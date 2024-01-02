@@ -1,0 +1,75 @@
+<div class="scs__child-news-wrapper" ng-controller="articleChildCtrl">
+    <div class="scs__child-news-date">
+       {{articleData.Date | date: 'dd/MMM/yyyy'}}
+    </div>
+    <h3 class="scs__child-news-heading">{{articleData.Title}}</h3>
+    <h5 class="scs__child-news-sub-heading">{{articleData.Sub_x002d_Title}}</h5>
+    <p class="scs__child-news-submit">Submitted by: {{articleData.Submitted_x002d_By}}</p>
+    <ul class="scs__child-social-list">
+        <li class="scs__child-social-listitem">
+            <a ng-click="addLike(articleData.Likes)" class="scs__child-news-like-link">
+                <div class="scs__child-news-like-cont"></div>        
+                <span class="scs__child-news-like-number">{{articleData.Likes}}</span>
+            </a>
+        </li>
+        <li class="scs__child-social-listitem">
+            <a ng-click="sendMail()" class="scs__child-news-share">
+                <div class="scs__child-news-share-cont"></div>        
+            </a>
+        </li>
+        <li class="scs__child-social-listitem">
+            <a ng-click="" class="scs__child-news-comment">
+                <div class="scs__child-news-comment-cont"></div>        
+                <span class="scs__child-news-comment-number">{{commentsArr.length}}</span>
+            </a>
+        </li>
+        <li class="scs__child-social-listitem">
+            <a ng-click="shareToYammer()" id='yj-share-button' title="Share on Yammer" class="scs__child-news-yammer">
+                <span class="scs__child-news-yammer-cont homeBtn"></span>
+            </a>     
+        </li>
+    </ul>
+    <section class="scs__child-news-main">
+        <div class="scs__child-news-cont" ng-bind-html="articleData.Main_x002d_Content"></div>
+        <div class="scs__child-news-right-cont">
+            <div ng-hide="usingVideo" class="scs__child-news-right-img">
+                <div style='position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;'>
+                <iframe width="640" height="360" ng-src="{{articleData.videoLink}}" allowfullscreen style="border:none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; max-width: 100%;"></iframe></div>
+            </div>
+            <div ng-show="usingVideo">
+                <img src="{{articleData.Image.Url}}" alt="attachment image" class="scs__child-news-right-img">
+            </div>
+            
+            <h5 ng-if="articleData.AttachArr.length > 0" class="scs__child-news-attachment-heading">Attachments</h5>
+            <ul ng-if="articleData.AttachArr" class="scs__child-news-attachments-list">
+                <li ng-repeat="attachment in articleData.AttachArr" class="scs__child-news-attachments-list--item">
+                    <a href="{{attachment.Link}}" class="scs__child-news-attachments-list--link">
+                        <img src="siteUrl/SiteAssets/web-assets/assets/img/doc-icon.png" alt="doc icon" class="scs__child-news-attachments-list--img">
+                        <span class="scs__child-news-attachments-list--title">{{attachment.Title}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <a ui-sref="top-stories" class="scs__child-news-more-btn">More Top Stories <span class="scs__more-chevron"></span></a>
+    <section class="scs__child-news-comments"> 
+        <div class="scs__comments-entry-section">
+            <p class="scs__comments-title"><span>{{commentsArr.length}}</span> comments</p>
+            <textarea ng-model="comment" class="scs__comments-textarea" name="" id="" rows="6"></textarea>
+            <a ng-click="addComments()" class="scs__child-news-more-btn">Add comment <span class="scs__more-chevron"></span></a>
+        </div>
+        <div class="scs__comments-view-section">
+            <ul class="scs__comments-view-list">
+                <li class="scs__comments-view-listitem" ng-repeat="comment in commentsArr | orderBy : '-Created'">
+                    <div class="scs__comments-author-details">
+                        <p class="scs__comments-author">{{comment.commentUser}}</p>
+                        <p class="scs__comments-author-date">{{comment.Created | date:'MM/dd/yyyy | HH:MM'}}</p>
+                    </div>
+                    <div class="scs__comments-details">
+                        <div ng-bind-html="comment.comment"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>

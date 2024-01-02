@@ -1,0 +1,307 @@
+.scs__stories-wrapper{
+    background-color: $scsBodyBgColor;
+    
+    @include mq($from: desktop){
+        background-image: url(siteUrl/SiteAssets/web-assets/assets/img/earth.png);
+        background-size: contain;
+        background-position: -221px 6px;
+        background-repeat: no-repeat;
+    }
+    .scs__stories-intro-section{
+        padding: 2rem;
+
+        @include mq($from: desktop){
+            padding: 2rem 6rem;
+        }
+    }
+
+    .scs__stories-heading-cont{
+        padding: 2rem 0;
+    }
+
+    .scs__stories-heading{
+        @include fontSize(34px);
+        font-family: EYInterstate-Light, sans-serif;
+        padding-left: 1rem;
+        margin: 0 0 0 -1rem;
+        border-left: 3px solid $eyOffBlack;
+    }
+
+    .scs__stories-checkbox-list{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        
+        @include mq($from: tablet){
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+    
+        &--item{
+            position: relative;
+            margin-right: 2rem;
+            display: flex;
+            @include fontSize(16px);
+            padding: 5px 0 !important;
+        } 
+    }
+    
+    // hide the checkbox
+    .scs__stories-checkbox-input {
+        display: block !important;
+        opacity: 0;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 9px;
+        left: 2;
+        z-index: 150;
+        cursor: pointer;
+    }
+     
+    .scs__stories-checkbox-input + label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative; 
+        font-size: 14px !important;
+    }
+     
+    // style checkbox
+    .scs__stories-checkbox-input[type="checkbox"] + label::before {
+        content: "";
+        width: 18px;
+        height: 18px;
+        border: 1px solid $eyOffBlack;
+        margin-right: 5px;
+        background-color: $scsBodyTextColor;
+        transition: background 300ms ease-in;
+    }
+     
+    .scs__stories-checkbox-input[type="checkbox"] + label::after {
+        content: "\2713";
+        color: $eyOffBlack;
+        position: absolute;
+        left: 6px;
+        top: -4px;
+        transform: scale(0);
+        transition: all 300ms ease-in-out;
+    }
+     
+    .scs__stories-checkbox-input[type="checkbox"]:checked + label::after {
+        transform: scale(2);
+    }
+     
+    .scs__stories-checkbox-input[type="checkbox"]:checked + label::before {
+        background-color: $white;
+    }
+
+    .scs__stories-cont{
+        padding: 2rem;
+
+        @include mq($from: desktop){
+            padding: 2rem 6rem;
+        }   
+    }
+
+
+    .scs__stories-list{
+        list-style: none;
+        padding: 0;
+
+        @include mq($from: tablet){
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        @include mq($from: desktopMid){
+            justify-content: space-between;
+        }
+
+        &--item{
+             width: 90%;
+             margin: 0 auto 4%;
+
+             @include mq($from: tablet){
+                 justify-content: space-between;
+                 flex-basis: 46%;
+                 margin: 0 2% 2% 0;
+             }
+
+             @include mq($from: desktop){
+                 &:hover{
+                    .scs__stories-list-heading{
+                        text-decoration: underline;
+                    }
+                 }
+             }
+
+             @include mq($from: desktopWide){
+                 flex-basis: 31%;
+             }
+        }
+
+        &--link{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+    }
+
+    .scs__stories-list-item-link{
+        display: flex;
+        flex-wrap: wrap;
+        text-decoration: none;
+        color: $eyOffBlack;
+
+        @include mq($from: tablet){
+            flex-wrap: nowrap;
+        }
+
+        &:hover{
+            .scs__stories-list-heading{
+                text-decoration: underline;
+            }
+
+            .scs__stories-list-arrow{
+                right: 18px;
+            }
+        }
+    }
+
+    .scs__stories-list-img{
+        display: block;
+        width: 40%;            
+    }
+
+    .scs__stories-list-desc-cont{
+        background-color: $white;
+        padding: 1rem 2rem;
+        flex-basis: 100%;
+        position: relative;
+        
+
+        @include mq($from: tablet){
+            flex-basis: 60%;
+            
+        }
+
+        @include mq($from: desktopMid){
+            padding: 3rem 2rem;
+        }
+    }
+
+    .scs__stories-list-desc{
+        @include fontSize(13px);
+        margin-bottom: 0;
+    }
+
+    .scs__stories-list-date{
+        color: $scsEventBgColor;
+        @include fontSize(12px);
+    }
+
+    .scs__stories-list-heading{
+        @include fontSize(16px);
+        font-family: EYInterstate-Light, sans-serif;
+        padding-right: 30px;
+        margin-bottom: 0;
+        transition: .5s;
+    }
+
+    .scs__stories-list-arrow{
+        position: absolute;
+        z-index: 50;
+        top: 34px;
+        right: 33px;
+        width: 30px;
+        height: 22px;
+        background-image: url(siteUrl/SiteAssets/web-assets/assets/img/Arrow_Back.png);
+        background-position: center;
+        background-size: contain;
+        transition: .5s;
+
+        @include mq($from: desktopMid){
+            top: 67px;
+        }
+    }
+
+}
+
+.scs__child-news-comments {
+    width: 100%;
+    border-top: 1px solid #23232F;
+    margin-top: 40px;
+    padding-top: 30px;
+}
+
+.scs__comments-entry-section {
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.scs__comments-title {
+    font-family: EYInterstate-Light, sans-serif;
+    color: $eyOffBlack;
+    @include fontSize(20px);
+
+    span {
+        font-family: EYInterstate-Bold, sans-serif;
+    }
+}
+
+.scs__comments-textarea {
+    width: 100%;
+    background: #ffffff;
+    font-family: EYInterstate-Light, sans-serif;
+    color: $eyOffBlack;
+    border: 1px solid #3A3A4A;
+    margin-bottom: 22px;
+}
+
+.scs__comments-view-section {
+    width: 100%;
+}
+
+.scs__comments-view-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-top: dotted 1px #23232F;
+}
+
+.scs__comments-view-listitem {
+    width: 100%;
+    @extend %clearfix;
+    list-style: none;
+    border-bottom: dotted 1px #23232F;
+}
+
+.scs__comments-author-details {
+    width: 20%;
+    float: left;
+    padding: 15px 0;
+}
+
+.scs__comments-author {
+    font-family: EYInterstate-Bold, sans-serif !important;
+    color: $eyOffBlack;
+    @include fontSize(16px);
+    margin: 0;
+}
+
+.scs__comments-author-date {
+    font-family: EYInterstate-Light, sans-serif;
+    font-style: italic;
+    color: $eyOffBlack;
+    @include fontSize(16px);
+}
+
+.scs__comments-details {
+    width: 80%;
+    min-height: 91px;
+    float: left;
+    border-left: dotted 1px #23232F;
+    padding: 15px 45px;
+}

@@ -1,0 +1,162 @@
+<base href="siteUrl/">
+
+<!-- Custom Meta tag -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes"> 
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="siteUrl/SiteAssets/web-assets/assets/css/style.css" type="text/css"> 
+
+
+<div id="scs__main-wrapper" ng-app="scsFamilyApp">
+    <header class="scs__header" ng-controller="headerCtrl" ng-init="getUserData()" search>
+        <div class="scs__logo-cont">
+            <a ui-sref="/" class="scs__logo-link">
+                <ul class="scs__logo-list">
+                    <li class="scs__logo-list--item">
+                        <img class="scs__logo-list-logo" src="siteUrl/SiteAssets/web-assets/assets/img/EY_Logo_Beam_RGB_White_Yellow.png" alt="">
+                    </li>
+                    <li class="scs__logo-list--item">
+                        <h1 class="scs__logo-list--heading">Supply Chain Services - Family</h1>
+                    </li>
+                </ul>
+            </a>
+            <ul class="scs__nav-list" scroll>
+                <li class="scs__nav-list--item">
+                    <a ui-sref="/" class="scs__nav-list--link">Home</a>
+                </li>
+                <li class="scs__nav-list--item">
+                    <a ui-sref="about" class="scs__nav-list--link">About SCS</a>
+                </li>
+                <li class="scs__nav-list--item">
+                    <a ui-sref="experience" class="scs__nav-list--link">The SCS Experience</a>
+                </li>
+                <!-- <li class="scs__nav-list--item">
+                    <a ui-sref="impact" class="scs__nav-list--link">Impact and Reporting</a>
+                </li> -->
+                <li class="scs__nav-list--item">
+                    <a href="siteUrl/SitePages/Family-Home.aspx/scs-essentials" class="scs__nav-list--link">SCS Essentials</a> 
+                </li>
+                <!-- <li class="scs__nav-list--item">
+                    <a href="" class="scs__nav-list--link">My Groups</a>
+                    <ul class="scs__quicklinks-list">
+                        <li ng-repeat="myGroup in myGroupsArr" class="scs__quicklinks-list--item">
+                            <a href="{{myGroup.Url.Url}}" class="scs__quicklinks-list--link">{{myGroup.Title}}<img src="siteUrl/SiteAssets/web-assets/assets/img/external-link.png" target="_blank" alt="external link img" class="scs__quicklinks-list--img"></a>
+                        </li>
+                    </ul>
+                </li> -->
+                <li class="scs__nav-list--item">
+                    <a href="" class="scs__nav-list--link">Quick Links</a>
+                    <ul class="scs__quicklinks-list">
+                        <li ng-repeat="quickLink in quickLinksArr | orderBy: 'field_2'" class="scs__quicklinks-list--item">
+                            <a href="{{quickLink.field_1}}" class="scs__quicklinks-list--link">{{quickLink.Title}}<img src="siteUrl/SiteAssets/web-assets/assets/img/external-link.png" target="_blank" alt="external link img" class="scs__quicklinks-list--img"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <a ng-click="searchCont()" class="scs__search-link">
+                <img src="siteUrl/SiteAssets/web-assets/assets/img/Search.png" alt="" class="scs__search-img">
+            </a>
+            
+            <div menu-popout>
+                <div class="clearfix ey__ham-menu-cont">
+                    <nav class="ey__ham-menu-toggle-cont">
+                        <a href="" class="ey__ham-menu-toggle--tablet" id="menuToggle">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
+                        <div class="ey__popout-menu">
+                            <ul class="ey__main-nav-list" scroll>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="home" class="ey__main-nav-anchor">Home</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="about" class="ey__main-nav-anchor">About SCS</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="experience" class="ey__main-nav-anchor">The SCS Experience</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a href="siteUrl/SitePages/Family-Home.aspx/scs-essentials" class="ey__main-nav-anchor">SCS Essentials</a> 
+                                </li>
+                                <!-- <li class="ey__main-nav-listitem">
+                                    <p class="ey__main-nav-anchor ey__main-nav-para">My Groups</p>
+                                    <ul class="ey__main__quicklinks-list">
+                                        <li ng-repeat="myGroup in myGroupsArr" class="scs__quicklinks-list--item">
+                                            <a href="{{myGroup.Url.Url}}" class="scs__quicklinks-list--link">{{myGroup.Title}}<img src="siteUrl/SiteAssets/web-assets/assets/img/external-link.png" target="_blank" alt="external link img" class="scs__quicklinks-list--img"></a>
+                                        </li>
+                                    </ul>
+                                </li> -->
+                                <li class="ey__main-nav-listitem">
+                                    <p class="ey__main-nav-anchor ey__main-nav-para">Quick Links</p>
+                                    <ul class="ey__main__quicklinks-list">
+                                        <li ng-repeat="quickLink in quickLinksArr | orderBy: 'field_2' " class="ey__main__quicklinks-list--item">
+                                            <a href="{{quickLink.field_1}}" class="ey__main__quicklinks-list--link">{{quickLink.Title}}<img src="siteUrl/SiteAssets/web-assets/assets/img/external-link-off-white.png" alt="external link img" class="ey__main__quicklinks-list--img"></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="scs__search-cont {{searchDisplayClass}}">
+                <a ng-click="searchCont()" class="scs__search-close-link"></a>
+                <input type="hidden" class="query" name="q" value="">
+                <input name="keywords" id="keywords" focus-me="opened" ng-focus="getKeyword($event)" type="text" placeholder="Search SCS news" ng-model="selectedKeyword" xxng-keydown="getKeyword($event.keyCode)" uib-typeahead = "state for state in filteredKeywordsArr | filter:$viewValue | limitTo:10" class="scs__search-input"/>                
+            </div>         
+        </div>
+        <div class="scs__nav-cont">
+            
+        </div>
+    </header> 
+    <ui-view></ui-view>
+    <!-- Vendors -->
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/angular.min.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/angular-ui-router.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/angular-sanitize.min.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/angular-animate.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/ngStorage.min.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/jquery.min.js"></script> 
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/bootstrap.bundle.min.js"></script>   
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/sprestlib.min.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/prism.min.js"></script>
+    <script src="https://use.fontawesome.com/7afb12a081.js?001"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.1/tinymce.min.js" integrity="sha512-WVGmm/5lH0QUFrXEtY8U9ypKFDqmJM3OIB9LlyMAoEOsq+xUs46jGkvSZXpQF7dlU24KRXDsUQhQVY+InRbncA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-tinymce/0.0.19/tinymce.min.js" integrity="sha512-GGMUfBwXvjpfSnQUkdY9F3VZ4LMrnVQbXXj8DSI+BlNIvIzhHKIC8OTc8f2lHVBm8khGmujN6ht8lwS1bsdquQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/vendors/calendar-tpls.min.js"></script>
+    <script type="text/javascript" src="https://s0.assets-yammer.com/assets/platform_social_buttons.min.js"></script>
+    <script type="text/javascript">yam.platform.yammerShare();</script>
+
+    <!-- App -->
+	<script src="siteUrl/SiteAssets/web-assets/assets/js/app.js"></script>
+
+    <!-- Factories -->
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/factory/scsFamilyFactory.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/factory/articleFactory.js"></script>
+   
+    <!-- Controllers -->
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/headerCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/searchCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/homeCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/articleChildCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/topStoriesCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/newsCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/newsletterCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/submitArticleCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/aboutCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/calendar.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/experienceCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/knowledgeCenterCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/templateCtrl.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/controllers/secondaryTemplateCtrl.js"></script>
+
+    <!-- Directives -->
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/directives/menuDir.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/directives/popupDir.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/directives/variousDir.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/directives/homeHeroDir.js"></script>
+    <script src="siteUrl/SiteAssets/web-assets/assets/js/directives/cardheightDir.js"></script>
+</div>
