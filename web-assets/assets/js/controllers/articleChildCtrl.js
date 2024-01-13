@@ -199,18 +199,5 @@ scsFamilyApp.controller('articleChildCtrl', function (scsFamilyData, articleData
             }
         });
     }
-
-    // $scope.shareToYammer = function () {
-    //     console.log("Item clicked");
-    //     var options = {
-    //         customButton: true,
-    //         classSelector: 'homeBtn',
-    //         defaultMessage: 'My custom Message',
-    //         pageUrl: 'www.microsoft.com'
-    //     };
-
-    //     yam.platform.yammerShare(options);
-    // }
-
 });
 
